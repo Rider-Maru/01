@@ -12,6 +12,7 @@ var onStandBy = false;
 function ring() {
     document.getElementById("Sound_Zero-One:" + ClickNum).play();
     if (onStandBy) SEstandbyStop();
+    
     ClickNum++;
 }
 SE_authorize.addEventListener("ended", function () {
