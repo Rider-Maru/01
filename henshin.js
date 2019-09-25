@@ -13,24 +13,25 @@ function ring() {
     if (onStandBy) SEstandbyStop();
     if (ClickNum == 4) ClickNum = 1;
     if (ClickNum == 0) {
-        //for (var i = 1; i < 4; i++) {
-        //    document.getElementById("Sound_Zero-One:" + i).play();
-       // }
-        document.getElementById("Sound_Zero-One:standby").play();
+        for (var i = 1; i < 4; i++) {
+            document.getElementById("Sound_Zero-One:" + i).play();
+        }
+        //document.getElementById("Sound_Zero-One:standby").play();
     }
     else {
         document.getElementById("Sound_Zero-One:" + ClickNum).play();
     }
     ClickNum++;
 }
-SE_authorize.addEventListener("ended", function () {
+SE_authorize.addEventListener("play", function () {
     SE_standby.play();
     onStandBy = true;
 }, false);
 
 function SEstandbyStop() {
-    SE_standby.pause();
-    SE_standby.currentTime = 0;
+    SE_authorize.pause();
+    SE_authorize.currentTime = 0;
+    onStandBy = false;
 }
 
 

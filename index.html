@@ -3,7 +3,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>HTML5のaudio要素で効果音を出す「おみくじ」サンプルページ - All About ホームページ作成</title>
+	<title>ZERO-One</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<style type="text/css">
@@ -19,6 +19,15 @@
 		div.omikujibase {
 
 		}
+		#square-button {
+			height: 100%;
+			left : 0px;
+			position: fixed;
+			top : 0px; 
+			width: 100%;
+			background-color: #23232300;
+			opacity: 1.0;
+		  }
 		p.button {
 			width: 149px;
 			text-align: center;
@@ -36,9 +45,6 @@
 
 </head>
 <body>
-
-	
-
 	<!-- =========================== -->
 	<!-- ▼効果音を準備するaudio要素 -->
 	<!-- =========================== -->
@@ -48,7 +54,7 @@
         <p>※お使いのブラウザは、残念ながらHTML5のaudio要素をサポートしていないようですから、音は鳴りません。</p>
     </audio>
     <audio id="Sound_Zero-One:2" preload="auto">
-        <source src="audio/authorize.mp3" type="audio/mp3">
+        <source src="audio/authorizeANDstandby.mp3" type="audio/mp3">
         <p>※お使いのブラウザは、残念ながらHTML5のaudio要素をサポートしていないようですから、音は鳴りません。</p>
     </audio>
     <audio id="Sound_Zero-One:3" preload="auto">
@@ -59,8 +65,9 @@
     <audio id="Sound_Zero-One:standby" preload="auto">
         <source src="audio/standby.mp3" type="audio/mp3">
         <p>※お使いのブラウザは、残念ながらHTML5のaudio要素をサポートしていないようですから、音は鳴りません。</p>
-    </audio>
-    <button type="submit" onclick="ring();"></button>
+	</audio>
+	<!--<input id="square-button" onclick="ring();" onkeydown="ring();"></input> -->
+    <button id="square-button" type="submit" onclick="ring();"></button>
 
 </body>
 <script type="text/javascript" src="henshin.js"></script>
