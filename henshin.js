@@ -13,9 +13,9 @@ function ring() {
     if (onStandBy) SEstandbyStop();
     if (ClickNum == 4) ClickNum = 1;
     if (ClickNum == 0) {
-        for (var i = 1; i < 4; i++) {
-            document.getElementById("Sound_Zero-One:" + i).play();
-        }
+        //for (var i = 1; i < 4; i++) {
+        //    document.getElementById("Sound_Zero-One:" + i).play();
+       // }
         document.getElementById("Sound_Zero-One:standby").play();
     }
     else {
