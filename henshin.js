@@ -16,6 +16,7 @@ function ring() {
         for (var i = 1; i < 4; i++) {
             document.getElementById("Sound_Zero-One:" + i).play();
         }
+        SE_standby.play();
     }
     else {
         document.getElementById("Sound_Zero-One:" + ClickNum).play();
@@ -29,6 +30,7 @@ SE_authorize.addEventListener("ended", function () {
 
 function SEstandbyStop() {
     SE_standby.pause();
+    SE_standby.currentTime = 0;
 }
 
 
