@@ -1,16 +1,22 @@
 var ClickNum = 0;
+var AutorizeNum = 0;
 var SE_authorize = document.getElementById("Sound_Zero-One:2");
+var SE_progrise = document.getElementById("Sound_Zero-One:3");
 var SE_standby = document.getElementById("Sound_Zero-One:standby");
 
+var isPushKey = false;
+var isProgrisable = false;
 var onStandBy = false;
 var onAuthorize = false;
 
+
+var threshold = 30;
 //videoタグを取得
 var video = document.getElementById("video");
 //取得するメディア情報を指定
 var medias = { audio: false, video: {} };
-//medias.video.facingMode = { exact: "user" };
 medias.video.facingMode = { exact: "environment" };
+//medias.video.facingMode = { exact: "user" };
 document.getElementById("str").textContent = "environment";
 
 //getUserMediaを用いて、webカメラの映像を取得
@@ -38,7 +44,6 @@ video.addEventListener("loadedmetadata", function (e) {
     var ctx = canvas.getContext("2d");
     //毎フレームの実行処理
     setInterval(function (e) {
-
         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
         var imagedata = ctx.getImageData(0, 0, canvas.width, canvas.height);
         var data = imagedata.data;
@@ -61,14 +66,14 @@ video.addEventListener("loadedmetadata", function (e) {
         }
         var val = allPicColor / (canvas.height * canvas.width);
         document.getElementById("debug").textContent = val;
-        if (val > 50) {
+        if (val > threshold) {
             onAuthorize = false;
             document.getElementById("debug_bool").textContent = "false";
         }
         else {
             if (!onAuthorize) {
                 onAuthorize = true;
-                ring();
+                ringByCamera();
             }
             document.getElementById("debug_bool").textContent = "true";
         }
@@ -82,20 +87,37 @@ video.addEventListener("loadedmetadata", function (e) {
 // 効果音を鳴らす（★今回のメインはこれ★）
 // ========================================
 function ring() {
-    if (onStandBy) SEstandbyStop();
-    if (ClickNum == 4) ClickNum = 1;
+    SEstandbyStop();
     if (ClickNum == 0) {
         for (var i = 1; i < 4; i++) {
-            
-            document.getElementById("Sound_Zero-One:" + i).play();
+            document.getElementById("Sound_Zero-One:" + i).load();
         }
         //document.getElementById("Sound_Zero-One:standby").play();
+        ClickNum = 1;
     }
     else {
+        isPushKey = true;
+        AutorizeNum = 2;
+        document.getElementById("Sound_Zero-One:" + ClickNum).currentTime = 0;
         document.getElementById("Sound_Zero-One:" + ClickNum).play();
     }
-    ClickNum++;
+    //ClickNum++;
 }
+
+function ringByCamera() {
+    if (AutorizeNum < 4 && (AutorizeNum != 3 || isProgrisable)) {
+        if (onStandBy) SEstandbyStop();
+        document.getElementById("Sound_Zero-One:" + AutorizeNum).currentTime = 0;
+        document.getElementById("Sound_Zero-One:" + AutorizeNum).play();
+        isProgrisable = false;
+        setTimeout(function () {
+            isProgrisable = true;
+        }, 1000)
+        AutorizeNum++;
+    }
+    
+}
+
 
 SE_authorize.addEventListener("play", function () {
     //SE_standby.play();
@@ -105,6 +127,8 @@ SE_authorize.addEventListener("play", function () {
 function SEstandbyStop() {
     SE_authorize.pause();
     SE_authorize.currentTime = 0;
+    SE_progrise.pause();
+    SE_progrise.currentTime = 0;
     onStandBy = false;
 }
 
