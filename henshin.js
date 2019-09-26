@@ -15,9 +15,9 @@ var threshold = 30;
 var video = document.getElementById("video");
 //取得するメディア情報を指定
 var medias = { audio: false, video: {} };
-medias.video.facingMode = { exact: "environment" };
-//medias.video.facingMode = { exact: "user" };
-document.getElementById("str").textContent = "environment";
+//medias.video.facingMode = { exact: "environment" };
+medias.video.facingMode = { exact: "user" };
+document.getElementById("str").textContent = "user";
 
 //getUserMediaを用いて、webカメラの映像を取得
 navigator.mediaDevices.getUserMedia(medias).then(
@@ -98,8 +98,10 @@ function ring() {
     else {
         isPushKey = true;
         AutorizeNum = 2;
-        document.getElementById("Sound_Zero-One:" + ClickNum).currentTime = 0;
-        document.getElementById("Sound_Zero-One:" + ClickNum).play();
+        //document.getElementById("Sound_Zero-One:" + ClickNum).currentTime = 0;
+        //document.getElementById("Sound_Zero-One:" + ClickNum).play();
+        SE_standby.currentTime=0;
+        SE_standby.play();
     }
     //ClickNum++;
 }
@@ -107,12 +109,13 @@ function ring() {
 function ringByCamera() {
     if (AutorizeNum < 4 && (AutorizeNum != 3 || isProgrisable)) {
         if (onStandBy) SEstandbyStop();
-        document.getElementById("Sound_Zero-One:" + AutorizeNum).currentTime = 0;
-        document.getElementById("Sound_Zero-One:" + AutorizeNum).play();
+        //document.getElementById("Sound_Zero-One:" + AutorizeNum).currentTime = 0;
+        //document.getElementById("Sound_Zero-One:" + AutorizeNum).play();
+        SE_standby.currentTime = 3;
         isProgrisable = false;
         setTimeout(function () {
             isProgrisable = true;
-        }, 1000)
+        }, 3000)
         AutorizeNum++;
     }
     
