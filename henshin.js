@@ -111,7 +111,8 @@ function ringByCamera() {
         if (onStandBy) SEstandbyStop();
         //document.getElementById("Sound_Zero-One:" + AutorizeNum).currentTime = 0;
         //document.getElementById("Sound_Zero-One:" + AutorizeNum).play();
-        playSE(AutorizeNum-1);
+        if (AutorizeNum == 2) onStandBy = true;
+        playSE(AutorizeNum - 1);
         //SE_authorize.currentTime = 1;
 
         isProgrisable = false;
