@@ -103,6 +103,7 @@ function stopSE() {
     soundArray[nowplaynum] = context.createBufferSource();
     soundArray[nowplaynum].buffer = bufferListUp[nowplaynum];
     soundArray[nowplaynum].connect(context.destination);
+    nowplaynum = null;
     /*
     nowplay.stop();
     nowplay = context.createBufferSource();
