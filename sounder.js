@@ -75,6 +75,9 @@ var bufferListUp = [];
 function playSE(num) {
     soundArray[num].start(0);
     soundArray[num] = context.createBufferSource();
-    soundArray[num].buffer = bufferListUp[num];
+    soundArray[num].buffer = bufferList[num];
     soundArray[num].connect(context.destination);
+}
+function stopsE() {
+    
 }

@@ -130,11 +130,12 @@ SE_authorize.addEventListener("play", function () {
 }, false);
 
 function SEstandbyStop() {
-    SE_authorize.pause();
-    SE_authorize.currentTime = 0;
-    SE_progrise.pause();
-    SE_progrise.currentTime = 0;
+    //SE_authorize.pause();
+    //SE_authorize.currentTime = 0;
+    //SE_progrise.pause();
+    //SE_progrise.currentTime = 0;
     onStandBy = false;
+    stopSE();
 }
 
 
