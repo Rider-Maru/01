@@ -43,7 +43,7 @@ var nowplaynum;
             this.loadBuffer(this.urlList[i], i);
     }
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
-    
+ /*   
 //-------------------------------------------    
 'use strict';
 
@@ -61,18 +61,7 @@ getByteFrequencyDataAverage = function () {
         return previous + current;
     }) / analyser.frequencyBinCount;
 };
-/*
-navigator.mediaDevices.getUserMedia({ audio: true })
-    .then(function (stream) {
-        window.hackForMozzila = stream;
-        context.createMediaStreamSource(stream)
-            // AnalyserNodeに接続
-            .connect(analyser);
-    })
-    .catch(function (err) {
-        console.log(err.message);
-    });
-*/
+
 // 透明度を変更する要素
 elLogo = document.getElementById('square-button');
 // 可能な限り高いフレームレートで音量を取得し、透明度に反映する
@@ -85,7 +74,7 @@ elLogo = document.getElementById('square-button');
     requestAnimationFrame(draw);
 })();
 //-------------------------------------------
-
+*/
 //context = new AudioContext();
     bufferLoader = new BufferLoader(
         context,
@@ -124,7 +113,7 @@ function playSECallKey() {
     soundArray[0] = context.createBufferSource();
     soundArray[0].buffer = bufferListUp[0];
     soundArray[0].connect(context.destination);
-    soundArray[0].connect(analyser);
+    //soundArray[0].connect(analyser);
 }
 
 function playSE(num) {
@@ -148,7 +137,7 @@ function stopSE() {
     soundArray[nowplaynum] = context.createBufferSource();
     soundArray[nowplaynum].buffer = bufferListUp[nowplaynum];
     soundArray[nowplaynum].connect(context.destination);
-    soundArray[nowplaynum].connect(analyser);
+    //soundArray[nowplaynum].connect(analyser);
     nowplaynum = null;
     /*
     nowplay.stop();
