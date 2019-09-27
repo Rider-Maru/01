@@ -43,7 +43,7 @@ var nowplaynum;
             this.loadBuffer(this.urlList[i], i);
     }
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
- /*   
+  
 //-------------------------------------------    
 'use strict';
 
@@ -66,19 +66,16 @@ getByteFrequencyDataAverage = function () {
 elLogo = document.getElementById('square-button');
 // 可能な限り高いフレームレートで音量を取得し、透明度に反映する
 (draw = function () {
-    if (true) return;
+    
     // opacityの範囲である0〜1に変換
-<<<<<<< HEAD
     var val = (getByteFrequencyDataAverage() / 255) * 3;
     elLogo.style.opacity = val;
     document.getElementById("debug_gain").textContent = val;
-=======
     elLogo.style.opacity = (getByteFrequencyDataAverage() / 255)+0.5;
->>>>>>> parent of 3b89e81... Update sounder.js
     requestAnimationFrame(draw);
 })();
 //-------------------------------------------
-*/
+
 context = new AudioContext();
     bufferLoader = new BufferLoader(
         context,
