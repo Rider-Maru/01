@@ -1,6 +1,7 @@
 var soundArray = [];
 var bufferListUp = [];
 var nowplay;
+var nowplaynum;
     function BufferLoader(context, urlList, callback) {
         this.context = context;
         this.urlList = urlList;
@@ -75,6 +76,7 @@ var nowplay;
 }
 function playSE(num) {
     nowplay = soundArray[num];
+    nowplaynum = num;
     nowplay.start(0);
 
     /*
@@ -87,7 +89,7 @@ function playSE(num) {
 function stopSE() {
     nowplay.stop();
     nowplay = context.createBufferSource();
-    nowplay.buffer = bufferListUp[num];
+    nowplay.buffer = bufferListUp[nowplaynum];
     nowplay.connect(context.destination);
     //soundArray[1].suspend();
     //soundArray[2].stop();
