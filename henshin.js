@@ -100,7 +100,6 @@ function ring() {
         isPushKey = true;
         AutorizeNum = 2;
         playSECallKey();
-        alert("pushed");
         //document.getElementById("Sound_Zero-One:" + ClickNum).currentTime = 0;
         //document.getElementById("Sound_Zero-One:" + ClickNum).play();
         //SE_authorize.currentTime=0;
