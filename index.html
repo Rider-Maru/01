@@ -19,7 +19,7 @@
 		div.omikujibase {
 
 		}
-		#square-button {
+		#square-button_ {
 			position: absolute;
     		top: 0;
     		left: 0;
@@ -28,7 +28,7 @@
     		text-indent:-999px;
     		z-index: 2; /* 必要であればリンク要素の重なりのベース順序指定 */
 		}
-		  		#square-button2 {
+		  		#square-button {
 			height: 100%;
 			left : 0px;
 			position: fixed;
@@ -82,9 +82,10 @@
 	<!--
 	<img src="picture/key_rising_hopper.png" id = square-button2 ></img>
 	-->
-	<a href ="#" onclick="ring();" id=square-button>
+	<!--<a href ="#" onclick="ring();" id=square-button>
 		<img src="picture/key_rising_hopper.png" id=square-button2></img>
-	</a>
+	</a>-->
+	<button id="square-button" type="submit" onclick="ring();"><img src="picture/key_rising_hopper.png" /></button>
 	<video id="video" autoplay playsinline="true"></video>
 	<canvas id="canvas"></canvas>
 	<div id="str">このタグの中身を書き換えます。</div>
