@@ -68,9 +68,13 @@ elLogo = document.getElementById('square-button');
 (draw = function () {
     if (true) return;
     // opacityの範囲である0〜1に変換
+<<<<<<< HEAD
     var val = (getByteFrequencyDataAverage() / 255) * 3;
     elLogo.style.opacity = val;
     document.getElementById("debug_gain").textContent = val;
+=======
+    elLogo.style.opacity = (getByteFrequencyDataAverage() / 255)+0.5;
+>>>>>>> parent of 3b89e81... Update sounder.js
     requestAnimationFrame(draw);
 })();
 //-------------------------------------------
