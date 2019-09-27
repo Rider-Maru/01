@@ -78,6 +78,6 @@ function playSE(num) {
     soundArray[num].buffer = bufferList[num];
     soundArray[num].connect(context.destination);
 }
-function stopsE() {
+function stopSE() {
     
 }
