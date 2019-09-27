@@ -80,5 +80,5 @@ function playSE(num) {
 }
 function stopSE() {
     soundArray[1].stop();
-    soundArray[2].stop();
+    //soundArray[2].stop();
 }
