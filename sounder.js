@@ -63,6 +63,7 @@ var nowplaynum;
             source.connect(context.destination);
             soundArray.push(source);
         }
+        
         /*
         for (let i = 0; i < el.length; i++) {
             el[i].addEventListener('click', function () {

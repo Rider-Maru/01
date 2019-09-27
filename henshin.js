@@ -15,8 +15,8 @@ var threshold = 30;
 var video = document.getElementById("video");
 //取得するメディア情報を指定
 var medias = { audio: false, video: {} };
-//medias.video.facingMode = { exact: "environment" };
-medias.video.facingMode = { exact: "user" };
+medias.video.facingMode = { exact: "environment" };
+//medias.video.facingMode = { exact: "user" };
 document.getElementById("str").textContent = "environment";
 
 //getUserMediaを用いて、webカメラの映像を取得
@@ -122,7 +122,6 @@ function ringByCamera() {
         }, 3000)
         AutorizeNum++;
     }
-    
 }
 
 
