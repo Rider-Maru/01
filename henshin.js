@@ -98,23 +98,26 @@ function ring() {
     else {
         isPushKey = true;
         AutorizeNum = 2;
-        document.getElementById("Sound_Zero-One:" + ClickNum).currentTime = 0;
-        document.getElementById("Sound_Zero-One:" + ClickNum).play();
+        //document.getElementById("Sound_Zero-One:" + ClickNum).currentTime = 0;
+        //document.getElementById("Sound_Zero-One:" + ClickNum).play();
+        SE_authorize.currentTime=0;
+        SE_authorize.play();
     }
     //ClickNum++;
 }
 
 function ringByCamera() {
     if (AutorizeNum < 4 && (AutorizeNum != 3 || isProgrisable)) {
-        if (onStandBy) SEstandbyStop();
-        document.getElementById("Sound_Zero-One:" + AutorizeNum).currentTime = 0;
-        document.getElementById("Sound_Zero-One:" + AutorizeNum).play();
+        //if (onStandBy) SEstandbyStop();
+        //document.getElementById("Sound_Zero-One:" + AutorizeNum).currentTime = 0;
+        //document.getElementById("Sound_Zero-One:" + AutorizeNum).play();
+        SE_authorize.currentTime = 1;
 
-        isProgrisable = false;
+        //isProgrisable = false;
         setTimeout(function () {
             isProgrisable = true;
-        }, 3000)
-        AutorizeNum++;
+        }, 0)
+        //AutorizeNum++;
     }
     
 }
