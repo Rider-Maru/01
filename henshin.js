@@ -94,11 +94,13 @@ function ring() {
         }
         //document.getElementById("Sound_Zero-One:standby").play();
         ClickNum = 1;
+        alert("hidoi");
     }
     else {
         isPushKey = true;
         AutorizeNum = 2;
         playSECallKey();
+        alert("pushed");
         //document.getElementById("Sound_Zero-One:" + ClickNum).currentTime = 0;
         //document.getElementById("Sound_Zero-One:" + ClickNum).play();
         //SE_authorize.currentTime=0;
