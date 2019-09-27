@@ -78,7 +78,7 @@ var nowplaynum;
 function playSECallKey() {
     soundArray[0].start(0);
     soundArray[0] = context.createBufferSource();
-    soundArray[0].buffer = bufferListUp[num];
+    soundArray[0].buffer = bufferListUp[0];
     soundArray[0].connect(context.destination);
 }
 
