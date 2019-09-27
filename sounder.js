@@ -68,7 +68,7 @@ elLogo = document.getElementById('square-button');
 (draw = function () {
     
     // opacityの範囲である0〜1に変換
-    var val = (getByteFrequencyDataAverage() / 255) * (getByteFrequencyDataAverage() / 255)*10;
+    var val = (getByteFrequencyDataAverage() / 255) * (getByteFrequencyDataAverage() / 255)*7;
     elLogo.style.opacity = val;
     document.getElementById("debug_gain").textContent = val;
     requestAnimationFrame(draw);
