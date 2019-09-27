@@ -74,6 +74,14 @@ var nowplaynum;
         }
         */
 }
+
+function playSECallKey() {
+    soundArray[0].start(0);
+    soundArray[0] = context.createBufferSource();
+    soundArray[0].buffer = bufferListUp[num];
+    soundArray[0].connect(context.destination);
+}
+
 function playSE(num) {
     /*
     nowplay = soundArray[num];
