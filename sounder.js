@@ -42,8 +42,48 @@ var nowplaynum;
         for (var i = 0; i < this.urlList.length; ++i)
             this.loadBuffer(this.urlList[i], i);
     }
-    window.AudioContext = window.AudioContext || window.webkitAudioContext;
-    context = new AudioContext();
+window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    
+//-------------------------------------------    
+'use strict';
+
+var context, analyser, frequencies, getByteFrequencyDataAverage, elLogo, draw;
+
+window.AudioContext = window.AudioContext || window.webkitAudioContext;
+context = new AudioContext();
+
+analyser = context.createAnalyser();
+frequencies = new Uint8Array(analyser.frequencyBinCount);
+
+getByteFrequencyDataAverage = function () {
+    analyser.getByteFrequencyData(frequencies);
+    return frequencies.reduce(function (previous, current) {
+        return previous + current;
+    }) / analyser.frequencyBinCount;
+};
+/*
+navigator.mediaDevices.getUserMedia({ audio: true })
+    .then(function (stream) {
+        window.hackForMozzila = stream;
+        context.createMediaStreamSource(stream)
+            // AnalyserNodeに接続
+            .connect(analyser);
+    })
+    .catch(function (err) {
+        console.log(err.message);
+    });
+*/
+// 透明度を変更する要素
+elLogo = document.getElementById('square-button');
+// 可能な限り高いフレームレートで音量を取得し、透明度に反映する
+(draw = function () {
+    // opacityの範囲である0〜1に変換
+    elLogo.style.opacity = getByteFrequencyDataAverage() / 255;
+    requestAnimationFrame(draw);
+})();
+//-------------------------------------------
+
+//context = new AudioContext();
     bufferLoader = new BufferLoader(
         context,
         [
@@ -63,7 +103,7 @@ var nowplaynum;
             source.connect(context.destination);
             soundArray.push(source);
         }
-        
+
         /*
         for (let i = 0; i < el.length; i++) {
             el[i].addEventListener('click', function () {
@@ -81,6 +121,7 @@ function playSECallKey() {
     soundArray[0] = context.createBufferSource();
     soundArray[0].buffer = bufferListUp[0];
     soundArray[0].connect(context.destination);
+    soundArray[0].connect(analyser);
 }
 
 function playSE(num) {
@@ -104,6 +145,7 @@ function stopSE() {
     soundArray[nowplaynum] = context.createBufferSource();
     soundArray[nowplaynum].buffer = bufferListUp[nowplaynum];
     soundArray[nowplaynum].connect(context.destination);
+    soundArray[nowplaynum].connect(analyser);
     nowplaynum = null;
     /*
     nowplay.stop();
