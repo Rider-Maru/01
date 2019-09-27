@@ -19,7 +19,7 @@
 		div.omikujibase {
 
 		}
-		#square-button {
+		#square-button_da {
 			height: 100%;
 			left : 0px;
 			position: fixed;
@@ -66,12 +66,14 @@
         <p>※お使いのブラウザは、残念ながらHTML5のaudio要素をサポートしていないようですから、音は鳴りません。</p>
 	</audio>
 	<input id="square-button" onclick="ring();" onkeydown="ring();"></input> -->
-    <button id="square-button" type="submit" onclick="ring();"><img src="picture/key_rising_hopper.png" /></button>
+	<button id="square-button" type="submit" onclick="ring();"><img src="picture/key_rising_hopper.png" /></button>
 	<video id="video" autoplay playsinline="true"></video>
 	<canvas id="canvas"></canvas>
 	<div id="str">このタグの中身を書き換えます。</div>
 	<div id="debug">このタグの中身を書き換えます。</div>
 	<div id="debug_bool">このタグの中身を書き換えます。</div>
 </body>
+<script type="text/javascript" src="sounder.js"></script>
 <script type="text/javascript" src="henshin.js"></script>
+
 </html>

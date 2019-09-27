@@ -15,8 +15,8 @@ var threshold = 30;
 var video = document.getElementById("video");
 //取得するメディア情報を指定
 var medias = { audio: false, video: {} };
-medias.video.facingMode = { exact: "environment" };
-//medias.video.facingMode = { exact: "user" };
+//medias.video.facingMode = { exact: "environment" };
+medias.video.facingMode = { exact: "user" };
 document.getElementById("str").textContent = "environment";
 
 //getUserMediaを用いて、webカメラの映像を取得
@@ -109,8 +109,9 @@ function ring() {
 function ringByCamera() {
     if (AutorizeNum < 4 && (AutorizeNum != 3 || isProgrisable)) {
         if (onStandBy) SEstandbyStop();
-        document.getElementById("Sound_Zero-One:" + AutorizeNum).currentTime = 0;
-        document.getElementById("Sound_Zero-One:" + AutorizeNum).play();
+        //document.getElementById("Sound_Zero-One:" + AutorizeNum).currentTime = 0;
+        //document.getElementById("Sound_Zero-One:" + AutorizeNum).play();
+        playSE(AutorizeNum-1);
         //SE_authorize.currentTime = 1;
 
         isProgrisable = false;
