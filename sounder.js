@@ -75,10 +75,13 @@ var nowplaynum;
         */
 }
 function playSE(num) {
+    /*
     nowplay = soundArray[num];
     nowplaynum = num;
     nowplay.start(0);
-
+*/
+    nowplaynum = num;
+    soundArray[nowplaynum].start(0);
     /*
     soundArray[num].start(0);
     soundArray[num] = context.createBufferSource();
@@ -87,10 +90,16 @@ function playSE(num) {
     */
 }
 function stopSE() {
+    soundArray[nowplaynum].stop();
+    soundArray[nowplaynum] = context.createBufferSource();
+    soundArray[nowplaynum].buffer = bufferListUp[nowplaynum];
+    soundArray[nowplaynum].connect(context.destination);
+    /*
     nowplay.stop();
     nowplay = context.createBufferSource();
     nowplay.buffer = bufferListUp[nowplaynum];
     nowplay.connect(context.destination);
+    */
     //soundArray[1].suspend();
     //soundArray[2].stop();
 }
