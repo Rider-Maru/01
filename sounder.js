@@ -87,6 +87,6 @@ function playSE(num) {
     */
 }
 function stopSE() {
-    nowplay.suspend();
+    soundArray[1].suspend();
     //soundArray[2].stop();
 }
