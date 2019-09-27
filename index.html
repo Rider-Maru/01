@@ -27,6 +27,14 @@
 			width: 100%;
 			opacity: 1;
 		  }
+		  		#square-button2 {
+			height: 100%;
+			left : 0px;
+			position: fixed;
+			top : 0px; 
+			width: 100%;
+			opacity: 1;
+		  }
 		p.button {
 			width: 149px;
 			text-align: center;
@@ -66,12 +74,14 @@
         <p>※お使いのブラウザは、残念ながらHTML5のaudio要素をサポートしていないようですから、音は鳴りません。</p>
 	</audio>
 	<input id="square-button" onclick="ring();" onkeydown="ring();"></input> -->
-	<button id="square-button" type="submit" onclick="ring();"><img src="picture/key_rising_hopper.png" /></button>
+	<button id="square-button2" type="submit"><img src="picture/key_rising_hopper.png" /></button>
+	<button id="square-button" type="submit" onclick="ring();"><img src="picture/key_rising_hopper_light.png" /></button>
 	<video id="video" autoplay playsinline="true"></video>
 	<canvas id="canvas"></canvas>
 	<div id="str">このタグの中身を書き換えます。</div>
 	<div id="debug">このタグの中身を書き換えます。</div>
 	<div id="debug_bool">このタグの中身を書き換えます。</div>
+	<div id="debug_gain">このタグの中身を書き換えます。</div>
 </body>
 <script type="text/javascript" src="sounder.js"></script>
 <script type="text/javascript" src="henshin.js"></script>

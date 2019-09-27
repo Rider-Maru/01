@@ -78,7 +78,9 @@ elLogo = document.getElementById('square-button');
 // 可能な限り高いフレームレートで音量を取得し、透明度に反映する
 (draw = function () {
     // opacityの範囲である0〜1に変換
-    elLogo.style.opacity = (getByteFrequencyDataAverage() / 255)*2;
+    var val = (getByteFrequencyDataAverage() / 255) * 2;
+    elLogo.style.opacity = val;
+    document.getElementById("debug_gain").textContent = val;
     requestAnimationFrame(draw);
 })();
 //-------------------------------------------
