@@ -76,7 +76,7 @@ elLogo = document.getElementById('square-button');
 })();
 //-------------------------------------------
 
-context = new AudioContext();
+//context = new AudioContext();
     bufferLoader = new BufferLoader(
         context,
         [
