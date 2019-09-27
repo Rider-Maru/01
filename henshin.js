@@ -15,8 +15,8 @@ var threshold = 30;
 var video = document.getElementById("video");
 //取得するメディア情報を指定
 var medias = { audio: false, video: {} };
-//medias.video.facingMode = { exact: "environment" };
-medias.video.facingMode = { exact: "user" };
+medias.video.facingMode = { exact: "environment" };
+//medias.video.facingMode = { exact: "user" };
 document.getElementById("str").textContent = "environment";
 
 //getUserMediaを用いて、webカメラの映像を取得
@@ -37,20 +37,20 @@ var canvas = document.getElementById("canvas");
 //ビデオのメタデータが読み込まれるまで待つ
 video.addEventListener("loadedmetadata", function (e) {
     //canvasにカメラの映像のサイズを設定
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
+    canvas.width = video.videoWidth/3;
+    canvas.height = video.videoHeight/3;
 
     //getContextで描画先を取得
     var ctx = canvas.getContext("2d");
     //毎フレームの実行処理
     setInterval(function (e) {
-        ctx.drawImage(video, 0, 0, canvas.width/3, canvas.height/3);
-        var imagedata = ctx.getImageData(0, 0, canvas.width/3, canvas.height/3);
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        var imagedata = ctx.getImageData(0, 0, canvas.width, canvas.height);
         var data = imagedata.data;
         var allPicColor = 0;
-        for (var i = canvas.height/3; i < 2*canvas.height/3; i++) {
-            for (var j = canvas.height / 3; j < 2*canvas.width/3; j++) {
-                var index = (i * canvas.width/3 + j) * 4;
+        for (var i = 0; i < canvas.height; i++) {
+            for (var j = 0; j < canvas.width; j++) {
+                var index = (i * canvas.width + j) * 4;
                 //元のピクセルカラーを取得
                 var r = data[index + 0];
                 var g = data[index + 1];
@@ -64,7 +64,7 @@ video.addEventListener("loadedmetadata", function (e) {
                 allPicColor += color;
             }
         }
-        var val = allPicColor / (canvas.height/3 * canvas.width/3);
+        var val = allPicColor / (canvas.height * canvas.width);
         document.getElementById("debug").textContent = val;
         if (val > threshold) {
             onAuthorize = false;
@@ -77,7 +77,7 @@ video.addEventListener("loadedmetadata", function (e) {
             }
             document.getElementById("debug_bool").textContent = "true";
         }
-        ctx.putImageData(imagedata, 0, 0, 0, 0, canvas.width/3, canvas.height/3);
+        ctx.putImageData(imagedata, 0, 0, 0, 0, canvas.width, canvas.height);
     }, 33);
 });
 
