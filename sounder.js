@@ -77,6 +77,7 @@ navigator.mediaDevices.getUserMedia({ audio: true })
 elLogo = document.getElementById('square-button');
 // 可能な限り高いフレームレートで音量を取得し、透明度に反映する
 (draw = function () {
+    if (!onStandby) return;
     // opacityの範囲である0〜1に変換
     var val = (getByteFrequencyDataAverage() / 255) * 3;
     elLogo.style.opacity = val;
