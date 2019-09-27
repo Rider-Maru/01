@@ -90,6 +90,7 @@ function playSE(num) {
     */
 }
 function stopSE() {
+    if (nowplaynum == null) return;
     soundArray[nowplaynum].stop();
     soundArray[nowplaynum] = context.createBufferSource();
     soundArray[nowplaynum].buffer = bufferListUp[nowplaynum];
