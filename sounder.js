@@ -76,9 +76,7 @@ var nowplay;
 function playSE(num) {
     nowplay = soundArray[num];
     nowplay.start(0);
-    nowplay = context.createBufferSource();
-    nowplay.buffer = bufferListUp[num];
-    nowplay.connect(context.destination);
+
     /*
     soundArray[num].start(0);
     soundArray[num] = context.createBufferSource();
@@ -87,6 +85,10 @@ function playSE(num) {
     */
 }
 function stopSE() {
-    soundArray[1].suspend();
+    nowplay.stop();
+    nowplay = context.createBufferSource();
+    nowplay.buffer = bufferListUp[num];
+    nowplay.connect(context.destination);
+    //soundArray[1].suspend();
     //soundArray[2].stop();
 }
