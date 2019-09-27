@@ -15,8 +15,8 @@ var threshold = 30;
 var video = document.getElementById("video");
 //取得するメディア情報を指定
 var medias = { audio: false, video: {} };
-medias.video.facingMode = { exact: "environment" };
-//medias.video.facingMode = { exact: "user" };
+//medias.video.facingMode = { exact: "environment" };
+medias.video.facingMode = { exact: "user" };
 document.getElementById("str").textContent = "environment";
 
 //getUserMediaを用いて、webカメラの映像を取得
@@ -44,12 +44,12 @@ video.addEventListener("loadedmetadata", function (e) {
     var ctx = canvas.getContext("2d");
     //毎フレームの実行処理
     setInterval(function (e) {
-        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-        var imagedata = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(video, 0, 0, canvas.width/3, canvas.height/3);
+        var imagedata = ctx.getImageData(0, 0, canvas.width/3, canvas.height/3);
         var data = imagedata.data;
         var allPicColor = 0;
-        for (var i = 0; i < canvas.height; i++) {
-            for (var j = 0; j < canvas.width; j++) {
+        for (var i = canvas.height/3; i < 2*canvas.height/3; i++) {
+            for (var j = canvas.height / 3; j < 2*canvas.width/3; j++) {
                 var index = (i * canvas.width + j) * 4;
                 //元のピクセルカラーを取得
                 var r = data[index + 0];
