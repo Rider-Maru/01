@@ -1,5 +1,6 @@
 var soundArray = [];
 var bufferListUp = [];
+var nowplay;
     function BufferLoader(context, urlList, callback) {
         this.context = context;
         this.urlList = urlList;
@@ -73,12 +74,19 @@ var bufferListUp = [];
         */
 }
 function playSE(num) {
+    nowplay = soundArray[num];
+    nowplay.start(0);
+    nowplay = context.createBufferSource();
+    nowplay.buffer = bufferListUp[num];
+    nowplay.connect(context.destination);
+    /*
     soundArray[num].start(0);
     soundArray[num] = context.createBufferSource();
     soundArray[num].buffer = bufferListUp[num];
     soundArray[num].connect(context.destination);
+    */
 }
 function stopSE() {
-    soundArray[1].stop();
+    nowplay.stop();
     //soundArray[2].stop();
 }
