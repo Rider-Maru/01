@@ -20,14 +20,14 @@
 
 		}
 		#square-button {
-position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    text-indent:-999px;
-    z-index: 2; /* 必要であればリンク要素の重なりのベース順序指定 */
-		  }
+			position: absolute;
+    		top: 0;
+    		left: 0;
+    		width: 100%;
+    		height: 100%;
+    		text-indent:-999px;
+    		z-index: 2; /* 必要であればリンク要素の重なりのベース順序指定 */
+		}
 		  		#square-button2 {
 			height: 100%;
 			left : 0px;
@@ -80,7 +80,7 @@ position: absolute;
 	<button id="square-button" type="submit" onclick="ring();"><img src="picture/key_rising_hopper_light.png" /></button>
 	-->
 	<img src="picture/key_rising_hopper.png" id = square-button2 ></img>
-	<a href ="#" onclick="ring();" id=square-button>
+	<a href ="#" onclick="clicker();" id=square-button>
 		<img src="picture/key_rising_hopper_light.png" id=square-button2></img>
 	</a>
 	<video id="video" autoplay playsinline="true"></video>
@@ -92,5 +92,16 @@ position: absolute;
 </body>
 <script type="text/javascript" src="sounder.js"></script>
 <script type="text/javascript" src="henshin.js"></script>
+<script>
+	var counter = 0;
 
+	function clicker() {
+		if (counter % 2 == 0) {
+			document.getElementById("square-button").style.opacity = 0.5;
+		} else {
+			document.getElementById("square-button").style.opacity = 1;
+		}
+		counter++;
+	}
+</script>
 </html>
