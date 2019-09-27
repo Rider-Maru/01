@@ -50,7 +50,7 @@ video.addEventListener("loadedmetadata", function (e) {
         var allPicColor = 0;
         for (var i = canvas.height/3; i < 2*canvas.height/3; i++) {
             for (var j = canvas.height / 3; j < 2*canvas.width/3; j++) {
-                var index = (i * canvas.width + j) * 4;
+                var index = (i * canvas.width/3 + j) * 4;
                 //元のピクセルカラーを取得
                 var r = data[index + 0];
                 var g = data[index + 1];
@@ -64,7 +64,7 @@ video.addEventListener("loadedmetadata", function (e) {
                 allPicColor += color;
             }
         }
-        var val = allPicColor / (canvas.height * canvas.width);
+        var val = allPicColor / (canvas.height/3 * canvas.width/3);
         document.getElementById("debug").textContent = val;
         if (val > threshold) {
             onAuthorize = false;
@@ -77,7 +77,7 @@ video.addEventListener("loadedmetadata", function (e) {
             }
             document.getElementById("debug_bool").textContent = "true";
         }
-        ctx.putImageData(imagedata, 0, 0, 0, 0, canvas.width, canvas.height);
+        ctx.putImageData(imagedata, 0, 0, 0, 0, canvas.width/3, canvas.height/3);
     }, 33);
 });
 
