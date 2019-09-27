@@ -114,7 +114,7 @@ function playSECallKey() {
     soundArray[0] = context.createBufferSource();
     soundArray[0].buffer = bufferListUp[0];
     soundArray[0].connect(context.destination);
-    //soundArray[0].connect(analyser);
+    soundArray[0].connect(analyser);
 }
 
 function playSE(num) {
@@ -138,7 +138,7 @@ function stopSE() {
     soundArray[nowplaynum] = context.createBufferSource();
     soundArray[nowplaynum].buffer = bufferListUp[nowplaynum];
     soundArray[nowplaynum].connect(context.destination);
-    //soundArray[nowplaynum].connect(analyser);
+    soundArray[nowplaynum].connect(analyser);
     nowplaynum = null;
     /*
     nowplay.stop();
