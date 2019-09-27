@@ -46,7 +46,7 @@
         [
             'audio/jump.mp3',
             'audio/authorizeANDstandby.mp3',
-            'audio/progrise.mp3',
+            'audio/standby.mp3',
         ],
         finishedLoading
     );
