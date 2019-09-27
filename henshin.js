@@ -87,7 +87,7 @@ video.addEventListener("loadedmetadata", function (e) {
 // 効果音を鳴らす（★今回のメインはこれ★）
 // ========================================
 function ring() {
-    SEstandbyStop();
+    //SEstandbyStop();
     if (ClickNum == 0) {
         for (var i = 1; i < 4; i++) {
             document.getElementById("Sound_Zero-One:" + i).load();
