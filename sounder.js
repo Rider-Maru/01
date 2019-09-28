@@ -138,6 +138,7 @@ function playSE(num) {
     soundArray[nowplaynum].start(0);
     if (nowplaynum == 1) {
         soundArray[1].onended = function () {
+            if (nowplaynum == null) return;
             soundArray[3].loop = true;
             soundArray[3].start(0);
             onRingingStandby = true;
