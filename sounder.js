@@ -89,6 +89,7 @@ elLogo = document.getElementById('square-button');
     function finishedLoading(bufferList) {
         //el = document.getElementsByClassName("sound");
         alert("ロードが完了しました");
+        finishAudioLoading();
         for (var i = 0; i < bufferList.length; i++) {
             var source = context.createBufferSource();
             source.buffer = bufferList[i];
