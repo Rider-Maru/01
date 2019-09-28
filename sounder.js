@@ -80,8 +80,9 @@ elLogo = document.getElementById('square-button');
         context,
         [
             'audio/jump.mp3',
-            'audio/authorizeANDstandby.mp3',
+            'audio/authorize.mp3',
             'audio/progrise.mp3',
+            'audio/standbyLoop.mp3',
         ],
         finishedLoading
     );
@@ -130,8 +131,15 @@ function playSE(num) {
     nowplay.start(0);
     */
     nowplaynum = num;
-    soundArray[nowplaynum].connect(analyser);
+    if (nowplaynum == 1) {
+        soundArray[1].onended = function () {
+            soundArray[3].loop = true;
+            soundArray[3].start(0);
+        }
+    }
+    else soundArray[nowplaynum].connect(analyser);
     soundArray[nowplaynum].start(0);
+    
     /*
     soundArray[num].start(0);
     soundArray[num] = context.createBufferSource();
