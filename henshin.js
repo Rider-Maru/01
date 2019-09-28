@@ -113,7 +113,7 @@ function ring() {
         ClickNum = 1;
     }
     else {
-        isAutorizable = true;
+        isAuthorizable = true;
         AutorizeNum = 1;
         playSECallKey();
     }
@@ -124,15 +124,15 @@ function ring() {
 function ringByCamera(callNum) {
     if (callNum != AutorizeNum) return;
 
-    if (AutorizeNum < 3 && isAutorizable) {
+    if (AutorizeNum < 3 && isAuthorizable) {
         if (onStandBy) SEstandbyStop();
         if (AutorizeNum == 1) onStandBy = true;
         playSE(AutorizeNum);
         //SE_authorize.currentTime = 1;
 
-        isAutorizable = false;
+        isAuthorizable = false;
         setTimeout(function () {
-            isAutorizable = true;
+            isAuthorizable = true;
         }, 3000)
 
         AutorizeNum++;
