@@ -109,8 +109,9 @@ elLogo = document.getElementById('square-button');
 }
 
 function playSECallKey() {
-    if (soundArray[0] != null) {
-        alert('オーディオデータをロード中です')
+    if (soundArray[0]== null) {
+        alert('オーディオデータをロード中です');
+        return;
     }
     soundArray[0].connect(analyser);
     soundArray[0].start(0);
