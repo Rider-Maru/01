@@ -2,6 +2,8 @@ var soundArray = [];
 var bufferListUp = [];
 var nowplay;
 var nowplaynum;
+var onRingingStandby = false;
+
     function BufferLoader(context, urlList, callback) {
         this.context = context;
         this.urlList = urlList;
@@ -135,9 +137,10 @@ function playSE(num) {
         soundArray[1].onended = function () {
             soundArray[3].loop = true;
             soundArray[3].start(0);
+            onRingingStandby = true;
         }
     }
-    else soundArray[nowplaynum].connect(analyser);
+    soundArray[nowplaynum].connect(analyser);
     soundArray[nowplaynum].start(0);
     
     /*
@@ -147,6 +150,7 @@ function playSE(num) {
     soundArray[num].connect(context.destination);
     */
 }
+
 function stopSE() {
     if (nowplaynum == null) return;
     soundArray[nowplaynum].stop();
@@ -155,12 +159,13 @@ function stopSE() {
     soundArray[nowplaynum].connect(context.destination);
     
     nowplaynum = null;
-    /*
-    nowplay.stop();
-    nowplay = context.createBufferSource();
-    nowplay.buffer = bufferListUp[nowplaynum];
-    nowplay.connect(context.destination);
-    */
-    //soundArray[1].suspend();
-    //soundArray[2].stop();
+}
+
+function stopStandbySE() {
+    if (!onRingingStandby) return;
+    soundArray[4].stop();
+    soundArray[4] = context.createBufferSource();
+    soundArray[4].buffer = bufferListUp[nowplaynum];
+    soundArray[4].connect(context.destination);
+    onRingingStandby = false;
 }

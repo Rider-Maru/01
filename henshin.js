@@ -150,6 +150,7 @@ function SEstandbyStop() {
     //SE_progrise.currentTime = 0;
     onStandBy = false;
     stopSE();
+    
 }
 
 
