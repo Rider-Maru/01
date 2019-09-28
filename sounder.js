@@ -11,7 +11,6 @@ var nowplaynum;
     }
     BufferLoader.prototype.loadBuffer = function (url, index) {
         // Load buffer asynchronously
-        alert("ロードが完了しました");
         var request = new XMLHttpRequest();
         request.open("GET", url, true);
         request.responseType = "arraybuffer";
@@ -40,8 +39,8 @@ var nowplaynum;
         request.send();
     }
     BufferLoader.prototype.load = function () {
-        for (var i = 0; i < this.urlList.length; ++i)
-            this.loadBuffer(this.urlList[i], i);
+    for (var i = 0; i < this.urlList.length; ++i)
+        this.loadBuffer(this.urlList[i], i);
     }
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
   
@@ -89,6 +88,7 @@ elLogo = document.getElementById('square-button');
     bufferLoader.load();
     function finishedLoading(bufferList) {
         //el = document.getElementsByClassName("sound");
+        alert("ロードが完了しました");
         for (var i = 0; i < bufferList.length; i++) {
             var source = context.createBufferSource();
             source.buffer = bufferList[i];
