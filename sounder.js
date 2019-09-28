@@ -11,6 +11,7 @@ var nowplaynum;
     }
     BufferLoader.prototype.loadBuffer = function (url, index) {
         // Load buffer asynchronously
+        alert(ロードが完了しました);
         var request = new XMLHttpRequest();
         request.open("GET", url, true);
         request.responseType = "arraybuffer";
