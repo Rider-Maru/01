@@ -16,8 +16,13 @@ var video = document.getElementById("video");
 //取得するメディア情報を指定
 var medias = { audio: false, video: {} };
 window.onload = function () {
-    medias.video.facingMode = { exact: "environment" };
-    //medias.video.facingMode = { exact: "user" };
+    if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)) {
+        medias.video.facingMode = { exact: "environment" };
+    } else {
+        medias.video.facingMode = { exact: "user" };
+    }
+    //medias.video.facingMode = { exact: "environment" };
+    medias.video.facingMode = { exact: "user" };
     document.getElementById("str").textContent = "environment";
 
     //getUserMediaを用いて、webカメラの映像を取得
