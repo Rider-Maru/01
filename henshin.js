@@ -54,6 +54,7 @@ video.addEventListener("loadedmetadata", function (e) {
         var imagedata = ctx.getImageData(0, 0, canvas.width, canvas.height);
         var data = imagedata.data;
         var allPicColor = 0;
+        console.log(isAuthorizable);
         for (var i = 0; i < canvas.height; i++) {
             for (var j = 0; j < canvas.width; j++) {
                 var index = (i * canvas.width + j) * 4;
