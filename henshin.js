@@ -72,24 +72,30 @@ video.addEventListener("loadedmetadata", function (e) {
         }
         var val = allPicColor / (canvas.height * canvas.width);
         document.getElementById("debug").textContent = val;
-        JudgeAutorize(val);
         ctx.putImageData(imagedata, 0, 0, 0, 0, canvas.width, canvas.height);
     }, 33);
+        JudgeAutorize(val);
+
 });
 
 
 function JudgeAutorize(value) {
     if (value > threshold) {
-        onAuthorize = false;
-        document.getElementById("debug_bool").textContent = "false";
+        if (onAuthorize) {
+            onAuthorize = false;
+            ringByCamera(2);
+            document.getElementById("debug_bool").textContent = "false";
+        }
     }
     else {
         if (!onAuthorize) {
             onAuthorize = true;
-            ringByCamera();
+            ringByCamera(1);
+            document.getElementById("debug_bool").textContent = "true";
         }
-        document.getElementById("debug_bool").textContent = "true";
+       
     }
+    
 }
 
 // ========================================
@@ -106,33 +112,33 @@ function ring() {
     }
     else {
         isAutorizable = true;
-        AutorizeNum = 2;
+        AutorizeNum = 1;
         playSECallKey();
     }
     //ClickNum++;
 }
 
 
-function ringByCamera() {
-    if (AutorizeNum < 4 && isAutorizable) {
+function ringByCamera(callNum) {
+    if (callNum != AutorizeNum) return;
+
+    if (AutorizeNum < 3 && isAutorizable) {
         if (onStandBy) SEstandbyStop();
-        if (AutorizeNum == 2) onStandBy = true;
-        playSE(AutorizeNum - 1);
+        if (AutorizeNum == 1) onStandBy = true;
+        playSE(AutorizeNum);
         //SE_authorize.currentTime = 1;
 
         isAutorizable = false;
         setTimeout(function () {
             isAutorizable = true;
         }, 3000)
+
         AutorizeNum++;
+        if (AutorizeNum > 3) AutorizeNum = 1;
     }
 }
 
 
-SE_authorize.addEventListener("play", function () {
-    //SE_standby.play();
-    onStandBy = true;
-}, false);
 
 function SEstandbyStop() {
     
