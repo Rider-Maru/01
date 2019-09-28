@@ -133,6 +133,7 @@ function ringByCamera(callNum) {
 
         isAuthorizable = false;
         setTimeout(function () {
+            if (onRingingStandby) return;
             isAuthorizable = true;
         }, 3000)
 
