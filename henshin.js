@@ -5,7 +5,7 @@ var SE_progrise = document.getElementById("Sound_Zero-One:3");
 var SE_standby = document.getElementById("Sound_Zero-One:standby");
 
 var isPushKey = false;
-var isProgrisable = false;
+var isAuthorizable = false;
 var onStandBy = false;
 var onAuthorize = false;
 
@@ -67,22 +67,25 @@ video.addEventListener("loadedmetadata", function (e) {
         }
         var val = allPicColor / (canvas.height * canvas.width);
         document.getElementById("debug").textContent = val;
-        if (val > threshold) {
-            onAuthorize = false;
-            document.getElementById("debug_bool").textContent = "false";
-        }
-        else {
-            if (!onAuthorize) {
-                onAuthorize = true;
-                ringByCamera();
-            }
-            document.getElementById("debug_bool").textContent = "true";
-        }
+        JudgeAutorize(val);
         ctx.putImageData(imagedata, 0, 0, 0, 0, canvas.width, canvas.height);
     }, 33);
 });
 
 
+function JudgeAutorize(value) {
+    if (val > threshold) {
+        onAuthorize = false;
+        document.getElementById("debug_bool").textContent = "false";
+    }
+    else {
+        if (!onAuthorize) {
+            onAuthorize = true;
+            ringByCamera();
+        }
+        document.getElementById("debug_bool").textContent = "true";
+    }
+}
 
 // ========================================
 // 効果音を鳴らす（★今回のメインはこれ★）
@@ -97,29 +100,24 @@ function ring() {
         ClickNum = 1;
     }
     else {
-        isPushKey = true;
+        isAutorizable = true;
         AutorizeNum = 2;
         playSECallKey();
-        //document.getElementById("Sound_Zero-One:" + ClickNum).currentTime = 0;
-        //document.getElementById("Sound_Zero-One:" + ClickNum).play();
-        //SE_authorize.currentTime=0;
-        //SE_authorize.play();
     }
     //ClickNum++;
 }
 
+
 function ringByCamera() {
-    if (AutorizeNum < 4 && (AutorizeNum != 3 || isProgrisable)) {
+    if (AutorizeNum < 4 && isAutorizable) {
         if (onStandBy) SEstandbyStop();
-        //document.getElementById("Sound_Zero-One:" + AutorizeNum).currentTime = 0;
-        //document.getElementById("Sound_Zero-One:" + AutorizeNum).play();
         if (AutorizeNum == 2) onStandBy = true;
         playSE(AutorizeNum - 1);
         //SE_authorize.currentTime = 1;
 
-        isProgrisable = false;
+        isAutorizable = false;
         setTimeout(function () {
-            isProgrisable = true;
+            isAutorizable = true;
         }, 3000)
         AutorizeNum++;
     }

@@ -12,10 +12,6 @@
 
         }
 
-		/* -------------------------------------------------------------------------------- */
-		/* おみくじ用の装飾（これは今回のメインではありませんがサンプルの表示には必要です） */
-		/* （過去記事 http://allabout.co.jp/gm/gc/23960/ 参照）                             */
-		/* -------------------------------------------------------------------------------- */
 		div.omikujibase {
 
 		}
@@ -53,28 +49,7 @@
 
 </head>
 <body>
-	<!-- =========================== -->
-	<!-- ▼効果音を準備するaudio要素 -->
-	<!-- =========================== -->
 
-    <audio id="Sound_Zero-One:1" preload="auto">
-        <source src="audio/jump.mp3" type="audio/mp3">
-        <p>※お使いのブラウザは、残念ながらHTML5のaudio要素をサポートしていないようですから、音は鳴りません。</p>
-    </audio>
-    <audio id="Sound_Zero-One:2" preload="auto">
-        <source src="audio/authorizeANDstandby.mp3" type="audio/mp3">
-        <p>※お使いのブラウザは、残念ながらHTML5のaudio要素をサポートしていないようですから、音は鳴りません。</p>
-    </audio>
-    <audio id="Sound_Zero-One:3" preload="auto">
-        <source src="audio/progrise.mp3" type="audio/mp3">
-        <p>※お使いのブラウザは、残念ながらHTML5のaudio要素をサポートしていないようですから、音は鳴りません。</p>
-    </audio>
-<!--
-    <audio id="Sound_Zero-One:standby" preload="auto">
-        <source src="audio/standby.mp3" type="audio/mp3">
-        <p>※お使いのブラウザは、残念ながらHTML5のaudio要素をサポートしていないようですから、音は鳴りません。</p>
-	</audio>
-	<input id="square-button" onclick="ring();" onkeydown="ring();"></input> -->
 	
 	<!--<button id="square-button2" type="submit"><img src="picture/key_rising_hopper.png" /></button>
 	<button id="square-button" type="submit" onclick="ring();"><img src="picture/key_rising_hopper.png" /></button>
@@ -97,17 +72,5 @@
 </body>
 <script type="text/javascript" src="sounder.js"></script>
 <script type="text/javascript" src="henshin.js"></script>
-<script>
-	var counter = 0;
 
-	function clicker() {
-		if (counter % 2 == 0) {
-			document.getElementById("square-button").style.opacity = 0.5;
-			alert("hidoi");
-		} else {
-			document.getElementById("square-button").style.opacity = 1;
-		}
-		counter++;
-	}
-</script>
 </html>

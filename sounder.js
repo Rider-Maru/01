@@ -122,7 +122,7 @@ function playSE(num) {
     nowplay = soundArray[num];
     nowplaynum = num;
     nowplay.start(0);
-*/
+    */
     nowplaynum = num;
     soundArray[nowplaynum].connect(analyser);
     soundArray[nowplaynum].start(0);
