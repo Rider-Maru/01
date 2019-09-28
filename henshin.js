@@ -71,10 +71,11 @@ video.addEventListener("loadedmetadata", function (e) {
             }
         }
         var val = allPicColor / (canvas.height * canvas.width);
+        JudgeAutorize(val);
         document.getElementById("debug").textContent = val;
         ctx.putImageData(imagedata, 0, 0, 0, 0, canvas.width, canvas.height);
     }, 33);
-        JudgeAutorize(val);
+        
 
 });
 
