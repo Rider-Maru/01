@@ -104,7 +104,7 @@ function JudgeAutorize(value) {
 // 効果音を鳴らす（★今回のメインはこれ★）
 // ========================================
 function ring() {
-    SEstandbyStop();
+    
     if (false) {
         for (var i = 1; i < 4; i++) {
             document.getElementById("Sound_Zero-One:" + i).load();
@@ -117,7 +117,7 @@ function ring() {
         AutorizeNum = 1;
         playSECallKey();
     }
-    //ClickNum++;
+    SEstandbyStop();
 }
 
 
