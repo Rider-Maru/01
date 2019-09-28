@@ -95,7 +95,6 @@ function ring() {
         }
         //document.getElementById("Sound_Zero-One:standby").play();
         ClickNum = 1;
-        alert("hidoi");
     }
     else {
         isPushKey = true;

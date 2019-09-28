@@ -109,11 +109,12 @@ elLogo = document.getElementById('square-button');
 }
 
 function playSECallKey() {
+    soundArray[0].connect(analyser);
     soundArray[0].start(0);
     soundArray[0] = context.createBufferSource();
     soundArray[0].buffer = bufferListUp[0];
     soundArray[0].connect(context.destination);
-    soundArray[0].connect(analyser);
+    
 }
 
 function playSE(num) {
@@ -123,6 +124,7 @@ function playSE(num) {
     nowplay.start(0);
 */
     nowplaynum = num;
+    soundArray[nowplaynum].connect(analyser);
     soundArray[nowplaynum].start(0);
     /*
     soundArray[num].start(0);
@@ -137,7 +139,7 @@ function stopSE() {
     soundArray[nowplaynum] = context.createBufferSource();
     soundArray[nowplaynum].buffer = bufferListUp[nowplaynum];
     soundArray[nowplaynum].connect(context.destination);
-    soundArray[nowplaynum].connect(analyser);
+    
     nowplaynum = null;
     /*
     nowplay.stop();
