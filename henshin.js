@@ -21,8 +21,7 @@ window.onload = function () {
     } else {
         medias.video.facingMode = { exact: "user" };
     }
-    //medias.video.facingMode = { exact: "environment" };
-    medias.video.facingMode = { exact: "user" };
+
     document.getElementById("str").textContent = "environment";
 
     //getUserMediaを用いて、webカメラの映像を取得
