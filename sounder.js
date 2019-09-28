@@ -133,6 +133,9 @@ function playSE(num) {
     nowplay.start(0);
     */
     nowplaynum = num;
+
+    soundArray[nowplaynum].connect(analyser);
+    soundArray[nowplaynum].start(0);
     if (nowplaynum == 1) {
         soundArray[1].onended = function () {
             soundArray[3].loop = true;
@@ -140,8 +143,6 @@ function playSE(num) {
             onRingingStandby = true;
         }
     }
-    soundArray[nowplaynum].connect(analyser);
-    soundArray[nowplaynum].start(0);
     
     /*
     soundArray[num].start(0);
