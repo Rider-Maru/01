@@ -81,18 +81,19 @@ video.addEventListener("loadedmetadata", function (e) {
 
 
 function JudgeAutorize(value) {
-    if (value > threshold) {
-        if (onAuthorize) {
-            onAuthorize = false;
-            ringByCamera(2);
-            document.getElementById("debug_bool").textContent = "false";
-        }
-    }
-    else {
+    if (value < threshold) {
         if (!onAuthorize) {
             onAuthorize = true;
             ringByCamera(1);
             document.getElementById("debug_bool").textContent = "true";
+        }
+ 
+    }
+    else {
+        if (onAuthorize) {
+            onAuthorize = false;
+            ringByCamera(2);
+            document.getElementById("debug_bool").textContent = "false";
         }
        
     }
