@@ -15,24 +15,25 @@ var threshold = 30;
 var video = document.getElementById("video");
 //取得するメディア情報を指定
 var medias = { audio: false, video: {} };
-medias.video.facingMode = { exact: "environment" };
-//medias.video.facingMode = { exact: "user" };
-document.getElementById("str").textContent = "environment";
+window.onload = function () {
+    medias.video.facingMode = { exact: "environment" };
+    //medias.video.facingMode = { exact: "user" };
+    document.getElementById("str").textContent = "environment";
 
-//getUserMediaを用いて、webカメラの映像を取得
-navigator.mediaDevices.getUserMedia(medias).then(
-    function (stream) {
-        //videoタグのソースにwebカメラの映像を指定
-        video.srcObject = stream;
+    //getUserMediaを用いて、webカメラの映像を取得
+    navigator.mediaDevices.getUserMedia(medias).then(
+        function (stream) {
+            //videoタグのソースにwebカメラの映像を指定
+            video.srcObject = stream;
 
-    }
-).catch(
-    function (err) {
-        //カメラの許可がされなかった場合にエラー
-        window.alert("not allowed to use camera");
-    }
-);
-
+        }
+    ).catch(
+        function (err) {
+            //カメラの許可がされなかった場合にエラー
+            window.alert("not allowed to use camera");
+        }
+    );
+}
 var canvas = document.getElementById("canvas");
 //ビデオのメタデータが読み込まれるまで待つ
 video.addEventListener("loadedmetadata", function (e) {
