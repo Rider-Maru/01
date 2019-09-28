@@ -92,7 +92,7 @@ function JudgeAutorize(value) {
 // ========================================
 function ring() {
     SEstandbyStop();
-    if (ClickNum == 0) {
+    if (false) {
         for (var i = 1; i < 4; i++) {
             document.getElementById("Sound_Zero-One:" + i).load();
         }
