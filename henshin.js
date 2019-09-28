@@ -78,7 +78,7 @@ video.addEventListener("loadedmetadata", function (e) {
 
 
 function JudgeAutorize(value) {
-    if (val > threshold) {
+    if (value > threshold) {
         onAuthorize = false;
         document.getElementById("debug_bool").textContent = "false";
     }
