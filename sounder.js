@@ -163,9 +163,9 @@ function stopSE() {
 
 function stopStandbySE() {
     if (!onRingingStandby) return;
-    soundArray[4].stop();
-    soundArray[4] = context.createBufferSource();
-    soundArray[4].buffer = bufferListUp[nowplaynum];
-    soundArray[4].connect(context.destination);
+    soundArray[3].stop();
+    soundArray[3] = context.createBufferSource();
+    soundArray[3].buffer = bufferListUp[nowplaynum];
+    soundArray[3].connect(context.destination);
     onRingingStandby = false;
 }
