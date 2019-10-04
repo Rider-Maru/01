@@ -16,6 +16,10 @@ var video = document.getElementById("video");
 //取得するメディア情報を指定
 var medias = { audio: false, video: {} };
 
+var swiper = new Swiper('.swiper-container', {
+    loop: false,
+});
+
 function finishAudioLoading() {
     if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)) {
         medias.video.facingMode = { exact: "environment" };
