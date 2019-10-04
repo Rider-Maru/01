@@ -87,6 +87,8 @@ var lightLayer = document.getElementsByClassName('square-button');
             'audio/authorize.mp3',
             'audio/progrise.mp3',
             'audio/standbyLoop.mp3',
+            'audio/wing.mp3',
+            'audio/flyingFalcon.mp3',
         ],
         finishedLoading
     );
@@ -120,11 +122,15 @@ function playSECallKey() {
         alert('オーディオデータをロード中です');
         return;
     }
-    soundArray[0].connect(analyser);
-    soundArray[0].start(0);
-    soundArray[0] = context.createBufferSource();
-    soundArray[0].buffer = bufferListUp[0];
-    soundArray[0].connect(context.destination);
+    var num = 0;
+    //ウイングなら変更する
+    if (swiper.realIndex == 1) num = 4;
+
+    soundArray[num].connect(analyser);
+    soundArray[num].start(0);
+    soundArray[num] = context.createBufferSource();
+    soundArray[num].buffer = bufferListUp[num];
+    soundArray[num].connect(context.destination);
     
 }
 

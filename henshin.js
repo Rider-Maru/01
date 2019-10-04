@@ -127,6 +127,8 @@ function ringByCamera(callNum) {
     if (AutorizeNum < 3 && isAuthorizable) {
         if (onStandBy) SEstandbyStop();
         if (AutorizeNum == 1) onStandBy = true;
+        //ウイングなら変更
+        if (swiper.realIndex == 1) AutorizeNum = 5;
         playSE(AutorizeNum);
         //SE_authorize.currentTime = 1;
 
