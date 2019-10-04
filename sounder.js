@@ -49,7 +49,7 @@ window.AudioContext = window.AudioContext || window.webkitAudioContext;
 //-------------------------------------------    
 'use strict';
 
-var context, analyser, frequencies, getByteFrequencyDataAverage, lightLayer, draw;
+var context, analyser, frequencies, getByteFrequencyDataAverage,  draw;
 
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
 context = new AudioContext();
@@ -65,7 +65,7 @@ getByteFrequencyDataAverage = function () {
 };
 
 // 透明度を変更する要素
-lightLayer[] = document.getElementsByClassName('square-button');
+var lightLayer = document.getElementsByClassName('square-button');
 // 可能な限り高いフレームレートで音量を取得し、透明度に反映する
 (draw = function () {
     
