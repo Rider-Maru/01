@@ -104,7 +104,7 @@ function JudgeAutorize(value) {
 // 効果音を鳴らす（★今回のメインはこれ★）
 // ========================================
 function ring() {
-    
+    console.log(swiper.realIndex);
     if (false) {
         for (var i = 1; i < 4; i++) {
             document.getElementById("Sound_Zero-One:" + i).load();
