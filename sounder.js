@@ -49,7 +49,7 @@ window.AudioContext = window.AudioContext || window.webkitAudioContext;
 //-------------------------------------------    
 'use strict';
 
-var context, analyser, frequencies, getByteFrequencyDataAverage, elLogo, draw;
+var context, analyser, frequencies, getByteFrequencyDataAverage, lightLayer, draw;
 
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
 context = new AudioContext();
@@ -65,13 +65,15 @@ getByteFrequencyDataAverage = function () {
 };
 
 // 透明度を変更する要素
-elLogo = document.getElementById('square-button');
+lightLayer[] = document.getElementsByClassName('square-button');
 // 可能な限り高いフレームレートで音量を取得し、透明度に反映する
 (draw = function () {
     
     // opacityの範囲である0〜1に変換
-    var val = (getByteFrequencyDataAverage() / 255) * (getByteFrequencyDataAverage() / 255)*7;
-    elLogo.style.opacity = val;
+    var val = (getByteFrequencyDataAverage() / 255) * (getByteFrequencyDataAverage() / 255) * 7;
+    for (var i = 0; i < lightLayer.length; i++){
+        lightLayer[i].style.opacity = val;
+    }
     document.getElementById("debug_gain").textContent = val;
     requestAnimationFrame(draw);
 })();
