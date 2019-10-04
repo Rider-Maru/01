@@ -3,7 +3,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>HTML5のaudio要素で効果音を出す「おみくじ」サンプルページ - All About ホームページ作成</title>
+	<title>ZERO-One</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<style type="text/css">
@@ -12,13 +12,26 @@
 
         }
 
-		/* -------------------------------------------------------------------------------- */
-		/* おみくじ用の装飾（これは今回のメインではありませんがサンプルの表示には必要です） */
-		/* （過去記事 http://allabout.co.jp/gm/gc/23960/ 参照）                             */
-		/* -------------------------------------------------------------------------------- */
 		div.omikujibase {
 
 		}
+		#square-button_1 {
+			position: absolute;
+    		top: 0;
+    		left: 0;
+    		width: 100%;
+    		height: 100%;
+    		text-indent:-999px;
+    		z-index: 2; /* 必要であればリンク要素の重なりのベース順序指定 */
+		}
+		#square-button2_1 {
+			height: 100%;
+			left : 0px;
+			position: fixed;
+			top : 0px; 
+			width: 100%;
+			opacity: 1;
+		  }
 		p.button {
 			width: 149px;
 			text-align: center;
@@ -36,32 +49,35 @@
 
 </head>
 <body>
-
+	<!--<button id="square-button2" type="submit"><img src="picture/key_rising_hopper.png" /></button>
+	<button id="square-button" type="submit" onclick="ring();"><img src="picture/key_rising_hopper.png" /></button>
+	-->
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide"><img src="https://haniwaman.com/wp-content/uploads/2018/05/swiper01.png"
+						alt="Swiper01"></div>
+				<div class="swiper-slide"><img src="https://haniwaman.com/wp-content/uploads/2018/05/swiper02.png"
+						alt="Swiper02"></div>
+				<div class="swiper-slide"><img src="https://haniwaman.com/wp-content/uploads/2018/05/swiper03.png"
+						alt="Swiper03"></div>
+			</div>
+		</div>
+	<img src="picture/key_rising_hopper.png" id = square-button2 ></img>
 	
-
-	<!-- =========================== -->
-	<!-- ▼効果音を準備するaudio要素 -->
-	<!-- =========================== -->
-
-    <audio id="Sound_Zero-One:1" preload="auto">
-        <source src="audio/jump.mp3" type="audio/mp3">
-        <p>※お使いのブラウザは、残念ながらHTML5のaudio要素をサポートしていないようですから、音は鳴りません。</p>
-    </audio>
-    <audio id="Sound_Zero-One:2" preload="auto">
-        <source src="audio/authorize.mp3" type="audio/mp3">
-        <p>※お使いのブラウザは、残念ながらHTML5のaudio要素をサポートしていないようですから、音は鳴りません。</p>
-    </audio>
-    <audio id="Sound_Zero-One:3" preload="auto">
-        <source src="audio/progrise.mp3" type="audio/mp3">
-        <p>※お使いのブラウザは、残念ながらHTML5のaudio要素をサポートしていないようですから、音は鳴りません。</p>
-    </audio>
-
-    <audio id="Sound_Zero-One:standby" preload="auto">
-        <source src="audio/standby.mp3" type="audio/mp3">
-        <p>※お使いのブラウザは、残念ながらHTML5のaudio要素をサポートしていないようですから、音は鳴りません。</p>
-    </audio>
-    <button type="submit" onclick="ring();"><img src="docplate.jpg" alt="送信" /></button>
-
+	<a href ="#" onclick="ring();" id=square-button>
+		<img src="picture/key_rising_hopper_light.png" id=square-button2></img>
+	</a>
+	<!--<button id="square-button" type="submit" onclick="ring();"><img src="picture/key_rising_hopper.png" /></button>
+	-->
+	
+	<video id="video" autoplay playsinline="true"></video>
+	<canvas id="canvas" hidden></canvas>
+	<div id="str">このタグの中身を書き換えます。</div>
+	<div id="debug">このタグの中身を書き換えます。</div>
+	<div id="debug_bool">このタグの中身を書き換えます。</div>
+	<div id="debug_gain">このタグの中身を書き換えます。</div>
 </body>
+<script type="text/javascript" src="sounder.js"></script>
 <script type="text/javascript" src="henshin.js"></script>
+
 </html>
