@@ -89,6 +89,8 @@ var lightLayer = document.getElementsByClassName('square-button');
             'audio/standbyLoop.mp3',
             'audio/wing.mp3',
             'audio/flyingFalcon.mp3',
+            'audio/fang.mp3',
+            'audio/bitingShark.mp3',
         ],
         finishedLoading
     );
@@ -125,6 +127,7 @@ function playSECallKey(callNum) {
     var num = 0;
     //ウイングなら変更する
     if (callNum == 1) num = 4;
+    if (callNum == 2) num = 6;
 
     soundArray[num].connect(analyser);
     soundArray[num].start(0);

@@ -11,7 +11,7 @@ var onAuthorize = false;
 
 var progriseNum = 0;
 
-var threshold = 15;
+var threshold = 30;
 //videoタグを取得
 var video = document.getElementById("video");
 //取得するメディア情報を指定
@@ -122,6 +122,7 @@ function ring(num) {
         isAuthorizable = true;
         AutorizeNum = 1;
         playSECallKey(progriseNum);
+        playSECallKey(progriseNum);
     }
     SEstandbyStop();
 }
@@ -134,7 +135,8 @@ function ringByCamera(callNum) {
         if (onStandBy) SEstandbyStop();
         if (AutorizeNum == 1) onStandBy = true;
         //ウイングなら変更
-        if (AutorizeNum == 2&& progriseNum == 1) AutorizeNum = 5;
+        if (AutorizeNum == 2 && progriseNum == 1) AutorizeNum = 5;
+        else if (AutorizeNum == 2 && progriseNum == 2) AutorizeNum = 7;
         playSE(AutorizeNum);
         //SE_authorize.currentTime = 1;
 
