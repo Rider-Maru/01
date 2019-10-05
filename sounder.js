@@ -117,14 +117,14 @@ var lightLayer = document.getElementsByClassName('square-button');
         */
 }
 
-function playSECallKey() {
+function playSECallKey(callNum) {
     if (soundArray[0]== null) {
         alert('オーディオデータをロード中です');
         return;
     }
     var num = 0;
     //ウイングなら変更する
-    if (swiper.realIndex == 1) num = 4;
+    if (callNum == 1) num = 4;
 
     soundArray[num].connect(analyser);
     soundArray[num].start(0);

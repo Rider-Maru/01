@@ -9,6 +9,7 @@ var isAuthorizable = false;
 var onStandBy = false;
 var onAuthorize = false;
 
+var progriseNum = 0;
 
 var threshold = 30;
 //videoタグを取得
@@ -107,7 +108,8 @@ function JudgeAutorize(value) {
 // ========================================
 // 効果音を鳴らす（★今回のメインはこれ★）
 // ========================================
-function ring() {
+function ring(num) {
+    progriseNum = num;
     console.log(swiper.activeIndex);
     if (false) {
         for (var i = 1; i < 4; i++) {
@@ -119,7 +121,7 @@ function ring() {
     else {
         isAuthorizable = true;
         AutorizeNum = 1;
-        playSECallKey();
+        playSECallKey(progriseNum);
     }
     SEstandbyStop();
 }
@@ -132,7 +134,7 @@ function ringByCamera(callNum) {
         if (onStandBy) SEstandbyStop();
         if (AutorizeNum == 1) onStandBy = true;
         //ウイングなら変更
-        if (swiper.realIndex == 1) AutorizeNum = 5;
+        if (progriseNum == 1) AutorizeNum = 5;
         playSE(AutorizeNum);
         //SE_authorize.currentTime = 1;
 
