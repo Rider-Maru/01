@@ -134,7 +134,7 @@ function ringByCamera(callNum) {
         if (onStandBy) SEstandbyStop();
         if (AutorizeNum == 1) onStandBy = true;
         //ウイングなら変更
-        if (progriseNum == 1) AutorizeNum = 5;
+        if (AutorizeNum == 2&& progriseNum == 1) AutorizeNum = 5;
         playSE(AutorizeNum);
         //SE_authorize.currentTime = 1;
 
