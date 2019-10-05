@@ -11,7 +11,7 @@ var onAuthorize = false;
 
 var progriseNum = 0;
 
-var threshold = 20;
+var threshold = 23;
 //videoタグを取得
 var video = document.getElementById("video");
 //取得するメディア情報を指定
