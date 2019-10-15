@@ -91,6 +91,8 @@ var lightLayer = document.getElementsByClassName('square-button');
             'audio/flyingFalcon.mp3',
             'audio/fang.mp3',
             'audio/bitingShark.mp3',
+            'audio/fire.mp3',
+            'audio/flamingTiger.mp3',
         ],
         finishedLoading
     );
