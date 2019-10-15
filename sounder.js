@@ -83,10 +83,10 @@ var lightLayer = document.getElementsByClassName('square-button');
     bufferLoader = new BufferLoader(
         context,
         [
-            'audio/jump.mp3',
             'audio/authorize.mp3',
-            'audio/progrise.mp3',
             'audio/standbyLoop.mp3',
+            'audio/jump.mp3',
+            'audio/risingHopper.mp3',
             'audio/wing.mp3',
             'audio/flyingFalcon.mp3',
             'audio/fang.mp3',
@@ -106,17 +106,6 @@ var lightLayer = document.getElementsByClassName('square-button');
             source.connect(context.destination);
             soundArray.push(source);
         }
-
-        /*
-        for (let i = 0; i < el.length; i++) {
-            el[i].addEventListener('click', function () {
-                soundArray[i].start(0);
-                soundArray[i] = context.createBufferSource();
-                soundArray[i].buffer = bufferList[i];
-                soundArray[i].connect(context.destination);
-            });
-        }
-        */
 }
 
 function playSECallKey(callNum) {
@@ -124,10 +113,8 @@ function playSECallKey(callNum) {
         alert('オーディオデータをロード中です');
         return;
     }
-    var num = 0;
-    //ウイングなら変更する
-    if (callNum == 1) num = 4;
-    if (callNum == 2) num = 6;
+    var num = 2;
+    num += callNum * 2;
 
     soundArray[num].connect(analyser);
     soundArray[num].start(0);
@@ -147,11 +134,11 @@ function playSE(num) {
 
     soundArray[nowplaynum].connect(analyser);
     soundArray[nowplaynum].start(0);
-    if (nowplaynum == 1) {
-        soundArray[1].onended = function () {
+    if (nowplaynum == 0) {
+        soundArray[0].onended = function () {
             if (nowplaynum == null) return;
-            soundArray[3].loop = true;
-            soundArray[3].start(0);
+            soundArray[1].loop = true;
+            soundArray[1].start(0);
             onRingingStandby = true;
         }
     }
@@ -176,9 +163,9 @@ function stopSE() {
 
 function stopStandbySE() {
     if (!onRingingStandby) return;
-    soundArray[3].stop();
-    soundArray[3] = context.createBufferSource();
-    soundArray[3].buffer = bufferListUp[3];
-    soundArray[3].connect(context.destination);
+    soundArray[1].stop();
+    soundArray[1] = context.createBufferSource();
+    soundArray[1].buffer = bufferListUp[1];
+    soundArray[1].connect(context.destination);
     onRingingStandby = false;
 }
