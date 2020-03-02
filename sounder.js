@@ -132,7 +132,7 @@ function playSECallKey(callNum) {
         alert('オーディオデータをロード中です');
         return;
     }
-
+    console.log("Key" + num);
     var num = callNum * 2;
 
     soundArrayKey[num].connect(analyser);
@@ -145,14 +145,14 @@ function playSECallKey(callNum) {
 
 function playSECallFunction(num) {
     nowplaynumKey = num;
-
+    console.log("Function" + num);
     soundArrayKey[nowplaynumKey].connect(analyser);
     soundArrayKey[nowplaynumKey].start(0);
 }
 
 function playSEBelt(num) {
     nowplaynumCommon = num;
-
+    console.log("Belt"+num);
     soundArrayCommon[num].connect(analyser);
     soundArrayCommon[num].start(0);
     if (num == 0) {
