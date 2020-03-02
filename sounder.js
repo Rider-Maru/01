@@ -168,12 +168,14 @@ function playSECallFinish(callNum) {
     soundArrayCommon[2].start(0);
     soundArrayCommon[2].onended = function () {
         if (nowplaynumCommon == null) return;
+        stopSE();
         nowplaynumCommon = null;
         nowplaynumKey = num;
         soundArrayKey[num].connect(analyser);
         soundArrayKey[num].start(0);
         soundArrayKey[num].onended = function () {
             if (nowplaynumKey == null) return;
+            stopSE();
             nowplaynumCommon = 3;
             nowplaynumKey = null;
             soundArrayCommon[3].connect(analyser);
