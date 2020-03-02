@@ -111,7 +111,7 @@ function JudgeAutorize(value) {
 // ========================================
 function ring(num) {
     progriseKeyNum = num;
-    console.log(swiper.activeIndex);
+    c(swiper.activeIndex);
     if (false) {
         for (var i = 1; i < 4; i++) {
             document.getElementById("Sound_Zero-One:" + i).load();
@@ -129,7 +129,7 @@ function ring(num) {
 
 
 function ringByCamera(callNum) {
-    Console.log(callNum + ";"+AutorizeNum);
+    console.log(callNum + ";"+AutorizeNum);
     if (!isAuthorizable) return;
     if (onStandBy) SEstandbyStop();
     if (callNum == 1 && AutorizeNum == 1) {
