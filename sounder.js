@@ -118,6 +118,14 @@ function finishedLoading(bufferList) {
                 'audio/fire.mp3',
                 'audio/flamingTiger.mp3',
                 'audio/flaming.mp3',
+                'audio/shiningJump.mp3',
+                'audio/shiningHopper.mp3',
+                'audio/shining.mp3',
+                /*
+                'audio/.mp3',
+                'audio/.mp3',
+                'audio/.mp3',
+                */
             ],
             finishedLoading
         );
