@@ -160,9 +160,9 @@ function playSECallFunction(callNum) {
 }
 
 function playSECallFinish(callNum) {
-    var num = 1 + callNum * 3;
+    var num = 2 + callNum * 3;
     nowplaynumCommon = 2;
-    console.log("Function" + num);
+    console.log("Finish" + num);
     soundArrayCommon[2].connect(analyser);
     soundArrayCommon[2].start(0);
     soundArrayCommon[2].onended = function () {

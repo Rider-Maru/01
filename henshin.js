@@ -141,7 +141,10 @@ function ringByCamera(callNum) {
     else if (callNum == 2) {
         isRing = true;
         if (AutorizeNum == 2) playSECallFunction(progriseKeyNum);
-        else if (AutorizeNum == 3) playSECallFinish(progriseKeyNum);
+        else if (AutorizeNum == 3) {
+            console.log("finishTime");
+            playSECallFinish(progriseKeyNum);
+        }
     }
     if (isRing) {
         isAuthorizable = false;
