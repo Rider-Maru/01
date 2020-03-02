@@ -152,8 +152,7 @@ function ringByCamera(callNum) {
             if (onRingingStandby||AutorizeNum==3) isAuthorizable = true;
         }, 3000)
 
-        AutorizeNum++;
-        if (AutorizeNum > 4) AutorizeNum = 1;
+        if (AutorizeNum < 3)AutorizeNum++;
     }
 }
 
