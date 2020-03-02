@@ -149,7 +149,7 @@ function ringByCamera(callNum) {
     if (isRing) {
         isAuthorizable = false;
         setTimeout(function () {
-            if (onRingingStandby) isAuthorizable = true;
+            if (onRingingStandby||AutorizeNum==3) isAuthorizable = true;
         }, 3000)
 
         AutorizeNum++;
