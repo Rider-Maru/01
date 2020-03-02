@@ -173,7 +173,7 @@ function playSECallFinish(callNum) {
         soundArrayKey[num].connect(analyser);
         soundArrayKey[num].start(0);
         soundArrayKey[num].onended = function () {
-            if (nowplaynumkey == null) return;
+            if (nowplaynumKey == null) return;
             nowplaynumCommon = 3;
             nowplaynumKey = null;
             soundArrayCommon[3].connect(analyser);
