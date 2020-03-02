@@ -128,7 +128,7 @@ function finishedLoading(bufferList) {
 }
 
 function playSECallKey(callNum) {
-    if (soundArray[0]== null) {
+    if (soundArrayKey[0]== null) {
         alert('オーディオデータをロード中です');
         return;
     }
@@ -185,9 +185,9 @@ function stopSE() {
 
 function stopStandbySE() {
     if (!onRingingStandby) return;
-    soundArray[1].stop();
-    soundArray[1] = context.createBufferSource();
-    soundArray[1].buffer = bufferListUp[1];
-    soundArray[1].connect(context.destination);
+    soundArrayCommon[1].stop();
+    soundArrayCommon[1] = context.createBufferSource();
+    soundArrayCommon[1].buffer = bufferListUp[1];
+    soundArrayCommon[1].connect(context.destination);
     onRingingStandby = false;
 }
