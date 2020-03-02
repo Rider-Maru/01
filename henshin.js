@@ -111,7 +111,7 @@ function JudgeAutorize(value) {
 // ========================================
 function ring(num) {
     progriseKeyNum = num;
-    c(swiper.activeIndex);
+    console.log(swiper.activeIndex);
     if (false) {
         for (var i = 1; i < 4; i++) {
             document.getElementById("Sound_Zero-One:" + i).load();
