@@ -116,7 +116,6 @@ function ring(num) {
         for (var i = 1; i < 4; i++) {
             document.getElementById("Sound_Zero-One:" + i).load();
         }
-        //document.getElementById("Sound_Zero-One:standby").play();
         ClickNum = 1;
     }
     else {
@@ -136,9 +135,9 @@ function ringByCamera(callNum) {
         if (onStandBy) SEstandbyStop();
         if (AutorizeNum == 1) {
             onStandBy = true;
-            playSE(0);
+            playSEBelt(0);
         } else if (AutorizeNum == 2) {
-            playSE(3 + progriseKeyNum *2);
+            playSECallFunction(1+progriseKeyNum *2);
         }
         isAuthorizable = false;
         setTimeout(function () {
