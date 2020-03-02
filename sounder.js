@@ -161,6 +161,7 @@ function playSECallFunction(callNum) {
 
 function playSECallFinish(callNum) {
     var num = 2 + callNum * 3;
+    stopSE();
     nowplaynumCommon = 2;
     console.log("Finish" + num);
     soundArrayCommon[2].connect(analyser);
@@ -169,7 +170,6 @@ function playSECallFinish(callNum) {
         if (nowplaynumCommon == null) return;
         nowplaynumCommon = null;
         nowplaynumKey = num;
-        soundArrayKey[num].loop = true;
         soundArrayKey[num].connect(analyser);
         soundArrayKey[num].start(0);
         soundArrayKey[num].onended = function () {
@@ -178,7 +178,6 @@ function playSECallFinish(callNum) {
             nowplaynumKey = null;
             soundArrayCommon[3].connect(analyser);
             soundArrayCommon[3].start(0);
-
         }
     }
 }
