@@ -88,9 +88,6 @@ var lightLayer = document.getElementsByClassName('square-button');
         [
             'audio/authorize.mp3',
             'audio/standbyLoop.mp3',
-            'audio/finish.mp3',
-            'audio/impact.mp3',
-            'audio/explosion.mp3',
         ],
         finishedLoading
     );
