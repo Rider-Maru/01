@@ -88,6 +88,9 @@ var lightLayer = document.getElementsByClassName('square-button');
         [
             'audio/authorize.mp3',
             'audio/standbyLoop.mp3',
+            'audio/finish.mp3',
+            'audio/impact.mp3',
+            'audio/explosion.mp3',
         ],
         finishedLoading
     );
@@ -105,12 +108,16 @@ function finishedLoading(bufferList) {
             [
                 'audio/jump.mp3',
                 'audio/risingHopper.mp3',
+                'audio/rising.mp3',
                 'audio/wing.mp3',
                 'audio/flyingFalcon.mp3',
+                'audio/rising.mp3',
                 'audio/fang.mp3',
                 'audio/bitingShark.mp3',
+                'audio/rising.mp3',
                 'audio/fire.mp3',
                 'audio/flamingTiger.mp3',
+                'audio/rising.mp3',
             ],
             finishedLoading
         );
@@ -134,7 +141,7 @@ function playSECallKey(callNum) {
         return;
     }
     console.log("Key" + num);
-    var num = callNum * 2;
+    var num = callNum * 3;
 
     soundArrayKey[num].connect(analyser);
     soundArrayKey[num].start(0);
@@ -144,11 +151,36 @@ function playSECallKey(callNum) {
     
 }
 
-function playSECallFunction(num) {
+function playSECallFunction(callNum) {
+    var num = 1 + callNum * 3;
     nowplaynumKey = num;
     console.log("Function" + num);
     soundArrayKey[nowplaynumKey].connect(analyser);
     soundArrayKey[nowplaynumKey].start(0);
+}
+
+function playSECallFinish(callNum) {
+    var num = 1 + callNum * 3;
+    nowplaynumCommon = 2;
+    console.log("Function" + num);
+    soundArrayCommon[2].connect(analyser);
+    soundArrayCommon[2].start(0);
+    soundArrayCommon[2].onended = function () {
+        if (nowplaynumCommon == null) return;
+        nowplaynumCommon = null;
+        nowplaynumKey = num;
+        soundArrayKey[num].loop = true;
+        soundArrayKey[num].connect(analyser);
+        soundArrayKey[num].start(0);
+        soundArrayKey[num].onended = function () {
+            if (nowplaynumkey == null) return;
+            nowplaynumCommon = 3;
+            nowplaynumKey = null;
+            soundArrayCommon[3].connect(analyser);
+            soundArrayCommon[3].start(0);
+
+        }
+    }
 }
 
 function playSEBelt(num) {
@@ -165,6 +197,7 @@ function playSEBelt(num) {
         }
     }
 }
+
 
 function stopSE() {
     if (nowplaynumCommon != null){

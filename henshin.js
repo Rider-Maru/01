@@ -129,24 +129,23 @@ function ring(num) {
 
 
 function ringByCamera(callNum) {
-    if (callNum != AutorizeNum) return;
-
-    if (AutorizeNum < 3 && isAuthorizable) {
-        if (onStandBy) SEstandbyStop();
-        if (AutorizeNum == 1) {
-            onStandBy = true;
-            playSEBelt(0);
-        } else if (AutorizeNum == 2) {
-            playSECallFunction(1+progriseKeyNum *2);
-        }
-        isAuthorizable = false;
-        setTimeout(function () {
-            if (onRingingStandby)isAuthorizable = true;
-        }, 3000)
-
-        AutorizeNum++;
-        if (AutorizeNum > 3) AutorizeNum = 1;
+    if (!isAuthorizable) return;
+    if (onStandBy) SEstandbyStop();
+    if (callNum == 1 && AutorizeNum == 1) {
+        onStandBy = true;
+        playSEBelt(0);
+     }
+    else if (callNum == 2) {
+        if (AutorizeNum == 2) playSECallFunction(progriseKeyNum);
+        else if (AutorizeNum == 3) playSECallFinish(progriseKeyNum);
     }
+    isAuthorizable = false;
+    setTimeout(function () {
+        if (onRingingStandby) isAuthorizable = true;
+    }, 3000)
+
+    AutorizeNum++;
+    if (AutorizeNum > 4) AutorizeNum = 1;
 }
 
 
