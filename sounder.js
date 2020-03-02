@@ -111,13 +111,13 @@ function finishedLoading(bufferList) {
                 'audio/rising.mp3',
                 'audio/wing.mp3',
                 'audio/flyingFalcon.mp3',
-                'audio/rising1.mp3',
+                'audio/flying.mp3',
                 'audio/fang.mp3',
                 'audio/bitingShark.mp3',
-                'audio/rising2.mp3',
+                'audio/biting.mp3',
                 'audio/fire.mp3',
                 'audio/flamingTiger.mp3',
-                'audio/rising3.mp3',
+                'audio/flaming.mp3',
             ],
             finishedLoading
         );
