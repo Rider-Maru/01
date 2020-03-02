@@ -176,7 +176,7 @@ function stopSE() {
     if (nowplaynumKey != null) {
         soundArrayKey[nowplaynumKey].stop();
         soundArrayKey[nowplaynumKey] = context.createBufferSource();
-        soundArrayKey[nowplaynumKey].buffer = bufferListUp[nowplaynumCommon];
+        soundArrayKey[nowplaynumKey].buffer = bufferListUp[nowplaynumKey];
         soundArrayKey[nowplaynumKey].connect(context.destination);
     
         nowplaynumKey = null;
