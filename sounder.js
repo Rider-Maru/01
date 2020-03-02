@@ -1,6 +1,7 @@
 var soundArrayCommon = [];
 var soundArrayKey = [];
-var bufferListUp = [];
+var bufferListUpCommon = [];
+var bufferListUpKey = [];
 var nowplay;
 var nowplaynumKey;
 var nowplaynumCommon;
@@ -95,7 +96,7 @@ function finishedLoading(bufferList) {
     for (var i = 0; i < bufferList.length; i++) {
         var source = context.createBufferSource();
         source.buffer = bufferList[i];
-        bufferListUp[i] = bufferList[i];
+        bufferListUpCommon[i] = bufferList[i];
         source.connect(context.destination);
         soundArrayCommon.push(source);
     }
@@ -120,7 +121,7 @@ function finishedLoading(bufferList) {
             for (var i = 0; i < bufferList.length; i++) {
                 var source = context.createBufferSource();
                 source.buffer = bufferList[i];
-                bufferListUp[i] = bufferList[i];
+                bufferListUpKey[i] = bufferList[i];
                 source.connect(context.destination);
                 soundArrayKey.push(source);
             }
@@ -138,7 +139,7 @@ function playSECallKey(callNum) {
     soundArrayKey[num].connect(analyser);
     soundArrayKey[num].start(0);
     soundArrayKey[num] = context.createBufferSource();
-    soundArrayKey[num].buffer = bufferListUp[num];
+    soundArrayKey[num].buffer = bufferListUpKey[num];
     soundArrayKey[num].connect(context.destination);
     
 }
@@ -169,16 +170,15 @@ function stopSE() {
     if (nowplaynumCommon != null){
         soundArrayCommon[nowplaynumCommon].stop();
         soundArrayCommon[nowplaynumCommon] = context.createBufferSource();
-        soundArrayCommon[nowplaynumCommon].buffer = bufferListUp[nowplaynumCommon];
+        soundArrayCommon[nowplaynumCommon].buffer = bufferListUpCommon[nowplaynumCommon];
         soundArrayCommon[nowplaynumCommon].connect(context.destination);
         nowplaynumCommon =null
     }
     if (nowplaynumKey != null) {
         soundArrayKey[nowplaynumKey].stop();
         soundArrayKey[nowplaynumKey] = context.createBufferSource();
-        soundArrayKey[nowplaynumKey].buffer = bufferListUp[nowplaynumKey];
+        soundArrayKey[nowplaynumKey].buffer = bufferListUpKey[nowplaynumKey];
         soundArrayKey[nowplaynumKey].connect(context.destination);
-    
         nowplaynumKey = null;
     }
 }
@@ -187,7 +187,7 @@ function stopStandbySE() {
     if (!onRingingStandby) return;
     soundArrayCommon[1].stop();
     soundArrayCommon[1] = context.createBufferSource();
-    soundArrayCommon[1].buffer = bufferListUp[1];
+    soundArrayCommon[1].buffer = bufferListUpCommon[1];
     soundArrayCommon[1].connect(context.destination);
     onRingingStandby = false;
 }
