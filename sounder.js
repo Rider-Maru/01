@@ -167,16 +167,16 @@ function playSEBelt(num) {
 
 function stopSE() {
     if (nowplaynumCommon != null){
-        soundArrayCommon[nowplaynumCommon ].stop();
-        soundArrayCommon[nowplaynumCommon ] = context.createBufferSource();
-        soundArrayCommon[nowplaynumCommon ].buffer = bufferListUp[nowplaynum];
-        soundArrayCommon[nowplaynumCommon ].connect(context.destination);
+        soundArrayCommon[nowplaynumCommon].stop();
+        soundArrayCommon[nowplaynumCommon] = context.createBufferSource();
+        soundArrayCommon[nowplaynumCommon].buffer = bufferListUp[nowplaynumCommon];
+        soundArrayCommon[nowplaynumCommon].connect(context.destination);
         nowplaynumCommon =null
     }
     if (nowplaynumKey != null) {
         soundArrayKey[nowplaynumKey].stop();
         soundArrayKey[nowplaynumKey] = context.createBufferSource();
-        soundArrayKey[nowplaynumKey].buffer = bufferListUp[nowplaynum];
+        soundArrayKey[nowplaynumKey].buffer = bufferListUp[nowplaynumCommon];
         soundArrayKey[nowplaynumKey].connect(context.destination);
     
         nowplaynumKey = null;
