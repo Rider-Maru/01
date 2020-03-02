@@ -136,7 +136,8 @@ function ringByCamera(callNum) {
     if (callNum == 1 && AutorizeNum == 1) {
         isRing = true;
         onStandBy = true;
-        playSEBelt(0);
+        if (progriseKeyNum == 5) playSEBelt(5);
+        else playSEBelt(0);
      }
     else if (callNum == 2) {
         isRing = true;

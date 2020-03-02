@@ -91,6 +91,7 @@ var lightLayer = document.getElementsByClassName('square-button');
             'audio/finish.mp3',
             'audio/impact.mp3',
             'audio/explosion.mp3',
+            'audio/overrize.mp3',
         ],
         finishedLoading
     );
@@ -121,6 +122,9 @@ function finishedLoading(bufferList) {
                 'audio/shiningJump.mp3',
                 'audio/shiningHopper.mp3',
                 'audio/shining.mp3',
+                'audio/hyperJump.mp3',
+                'audio/shiningAssaultHopper.mp3.mp3',
+                'audio/shiningStorm.mp3',
                 /*
                 'audio/.mp3',
                 'audio/.mp3',
@@ -197,13 +201,11 @@ function playSEBelt(num) {
     console.log("Belt"+num);
     soundArrayCommon[num].connect(analyser);
     soundArrayCommon[num].start(0);
-    if (num == 0) {
-        soundArrayCommon[0].onended = function () {
+    soundArrayCommon[num].onended = function () {
             if (nowplaynumCommon == null) return;
-            soundArrayCommon[1].loop = true;
-            soundArrayCommon[1].start(0);
+        soundArrayCommon[num].loop = true;
+        soundArrayCommon[num].start(0);
             onRingingStandby = true;
-        }
     }
 }
 
