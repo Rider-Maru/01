@@ -129,6 +129,7 @@ function ring(num) {
 
 
 function ringByCamera(callNum) {
+    Console.log(callNum + ";"+AutorizeNum);
     if (!isAuthorizable) return;
     if (onStandBy) SEstandbyStop();
     if (callNum == 1 && AutorizeNum == 1) {
