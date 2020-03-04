@@ -92,6 +92,7 @@ var lightLayer = document.getElementsByClassName('square-button');
             'audio/impact.mp3',
             'audio/explosion.mp3',
             'audio/overrize.mp3',
+            'audio/finishAssault.mp3'
         ],
         finishedLoading
     );
@@ -175,10 +176,11 @@ function playSECallFinish(callNum) {
     var num = 2 + callNum * 3;
     stopSE();
     nowplaynumCommon = 2;
+    if (callNum == 5) nowplaynumCommon = 6;
     console.log("Finish" + num);
-    soundArrayCommon[2].connect(analyser);
-    soundArrayCommon[2].start(0);
-    soundArrayCommon[2].onended = function () {
+    soundArrayCommon[nowplaynumCommon].connect(analyser);
+    soundArrayCommon[nowplaynumCommon].start(0);
+    soundArrayCommon[nowplaynumCommon].onended = function () {
         if (nowplaynumCommon == null) return;
         stopSE();
         nowplaynumCommon = null;
