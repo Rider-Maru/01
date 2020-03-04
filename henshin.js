@@ -122,7 +122,6 @@ function ring(num) {
         isAuthorizable = true;
         AutorizeNum = 1;
         playSECallKey(progriseKeyNum);
-        playSECallKey(progriseKeyNum);
     }
     SEstandbyStop();
 }
