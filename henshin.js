@@ -18,7 +18,7 @@ var video = document.getElementById("video");
 //取得するメディア情報を指定
 var medias = { audio: false, video: {} };
 
-var swiper = new Swiper('.swiper-container', {
+var mySwiper = new Swiper('.swiper-container', {
     loop: true,
 });
 
@@ -56,7 +56,7 @@ video.addEventListener("loadedmetadata", function (e) {
     var ctx = canvas.getContext("2d");
     //毎フレームの実行処理
     setInterval(function (e) {
-        console.log(swiper.activeIndex);
+        console.log(mySwiper.realIndex);
         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
         var imagedata = ctx.getImageData(0, 0, canvas.width, canvas.height);
         var data = imagedata.data;
@@ -112,7 +112,6 @@ function JudgeAutorize(value) {
 // ========================================
 function ring(num) {
     progriseKeyNum = num;
-    console.log(swiper.activeIndex);
     if (false) {
         for (var i = 1; i < 4; i++) {
             document.getElementById("Sound_Zero-One:" + i).load();
