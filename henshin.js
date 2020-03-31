@@ -1,8 +1,5 @@
 var ClickNum = 0;
 var AutorizeNum = 0;
-var SE_authorize = document.getElementById("Sound_Zero-One:2");
-var SE_progrise = document.getElementById("Sound_Zero-One:3");
-var SE_standby = document.getElementById("Sound_Zero-One:standby");
 
 var isPushKey = false;
 var isAuthorizable = false;
@@ -111,18 +108,9 @@ function JudgeAutorize(value) {
 // 効果音を鳴らす（★今回のメインはこれ★）
 // ========================================
 function ring() {
-    //mySwiper.realIndex = mySwiper.realIndex;
-    if (false) {
-        for (var i = 1; i < 4; i++) {
-            document.getElementById("Sound_Zero-One:" + i).load();
-        }
-        ClickNum = 1;
-    }
-    else {
-        isAuthorizable = true;
-        AutorizeNum = 1;
-        playSECallKey(mySwiper.realIndex);
-    }
+    isAuthorizable = true;
+    AutorizeNum = 1;
+    playSECallKey(mySwiper.realIndex);
     SEstandbyStop();
 }
 

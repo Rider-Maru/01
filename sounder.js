@@ -162,8 +162,7 @@ function playSECallKey(callNum) {
     soundArrayKey[num].start(0);
     soundArrayKey[num] = context.createBufferSource();
     soundArrayKey[num].buffer = bufferListUpKey[num];
-    soundArrayKey[num].connect(context.destination);
-    
+    soundArrayKey[num].connect(context.destination); 
 }
 
 function playSECallFunction(callNum) {
