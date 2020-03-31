@@ -19,7 +19,7 @@ var video = document.getElementById("video");
 var medias = { audio: false, video: {} };
 
 var swiper = new Swiper('.swiper-container', {
-    loop: false,
+    loop: true,
 });
 
 function finishAudioLoading() {
@@ -56,7 +56,7 @@ video.addEventListener("loadedmetadata", function (e) {
     var ctx = canvas.getContext("2d");
     //毎フレームの実行処理
     setInterval(function (e) {
-        console.log(mySwiper.activeIndex);
+        console.log(swiper.activeIndex);
         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
         var imagedata = ctx.getImageData(0, 0, canvas.width, canvas.height);
         var data = imagedata.data;
