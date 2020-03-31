@@ -7,6 +7,8 @@ var nowplaynumKey;
 var nowplaynumCommon;
 var onRingingStandby = false;
 
+var shiningAssaultHopperNum = 5;
+
     function BufferLoader(context, urlList, callback) {
         this.context = context;
         this.urlList = urlList;
@@ -176,7 +178,7 @@ function playSECallFinish(callNum) {
     var num = 2 + callNum * 3;
     stopSE();
     nowplaynumCommon = 2;
-    if (callNum == 5) nowplaynumCommon = 6;
+    if (callNum == shiningAssaultHopperNum) nowplaynumCommon = 6;
     console.log("Finish" + num);
     soundArrayCommon[nowplaynumCommon].connect(analyser);
     soundArrayCommon[nowplaynumCommon].start(0);
@@ -198,7 +200,10 @@ function playSECallFinish(callNum) {
     }
 }
 
-function playSEBelt(num) {
+function playSEBelt(callNum) {
+    var num = 0;
+    if (callNum == shiningAssaultHopperNum) num = 5;
+
     nowplaynumCommon = num;
     console.log("Belt"+num);
     soundArrayCommon[num].connect(analyser);
