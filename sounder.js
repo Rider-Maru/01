@@ -123,8 +123,10 @@ function finishedLoading(bufferList) {
                 'audio/flamingTiger.mp3',
                 'audio/flaming.mp3',
                 'audio/jump.mp3',
+                'audio/rising.mp3',
                 'audio/risingHopper.mp3',
                 'audio/jump.mp3',
+                'audio/rising.mp3',
                 'audio/risingHopper.mp3',
                 'audio/shiningJump.mp3',
                 'audio/shiningHopper.mp3',
@@ -134,6 +136,7 @@ function finishedLoading(bufferList) {
                 'audio/shiningStorm.mp3',
                 'audio/jump.mp3',
                 'audio/risingHopper.mp3',
+                'audio/rising.mp3',
                 /*
                 'audio/.mp3',
                 'audio/.mp3',
