@@ -7,7 +7,7 @@ var nowplaynumKey;
 var nowplaynumCommon;
 var onRingingStandby = false;
 
-var shiningAssaultHopperNum = 5;
+var shiningAssaultHopperNum = 7;
 
     function BufferLoader(context, urlList, callback) {
         this.context = context;
@@ -122,12 +122,18 @@ function finishedLoading(bufferList) {
                 'audio/fire.mp3',
                 'audio/flamingTiger.mp3',
                 'audio/flaming.mp3',
+                'audio/jump.mp3',
+                'audio/risingHopper.mp3',
+                'audio/jump.mp3',
+                'audio/risingHopper.mp3',
                 'audio/shiningJump.mp3',
                 'audio/shiningHopper.mp3',
                 'audio/shining.mp3',
                 'audio/hyperJump.mp3',
                 'audio/shiningAssaultHopper.mp3',
                 'audio/shiningStorm.mp3',
+                'audio/jump.mp3',
+                'audio/risingHopper.mp3',
                 /*
                 'audio/.mp3',
                 'audio/.mp3',
