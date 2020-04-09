@@ -136,9 +136,14 @@ function ringByCamera(callNum) {
         }
         else if (AutorizeNum == 2) {
             if (mySwiper.realIndex == metalClasterHopperNum) {
+                isRing = false;
                 onStandByMetal = true;
                 playSELetsRise();
-                AutorizeNum--;
+
+                isAuthorizable = false;
+                setTimeout(function () {
+                    if (onRingingStandby || AutorizeNum == 3) isAuthorizable = true;
+                }, 1500)
             }
             else playSECallFunction(mySwiper.realIndex);
         }
