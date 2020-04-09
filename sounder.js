@@ -95,7 +95,10 @@ var lightLayer = document.getElementsByClassName('square-button');
             'audio/impact.mp3',
             'audio/explosion.mp3',
             'audio/overrize.mp3',
-            'audio/finishAssault.mp3'
+            'audio/finishAssault.mp3',
+            'audio/progrise.mp3',
+            'audio/LetsRise.mp3'
+
         ],
         finishedLoading
     );
@@ -226,7 +229,7 @@ function playSEBelt(callNum) {
 }
 
 function playSELetsRise() {
-    var num = 0;
+    var num = 7;
     nowplaynumCommon = num;
     console.log("Belt" + num);
     soundArrayCommon[num].connect(analyser);
@@ -234,8 +237,8 @@ function playSELetsRise() {
     soundArrayCommon[num].onended = function () {
         if (nowplaynumCommon == null) return;
         if (!onStandByMetal) return;
-        soundArrayCommon[1].loop = true;
-        soundArrayCommon[1].start(0);
+        soundArrayCommon[8].loop = true;
+        soundArrayCommon[8].start(0);
         onRingingStandby = true;
     }
 }
