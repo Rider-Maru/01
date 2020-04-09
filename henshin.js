@@ -144,7 +144,7 @@ function ringByCamera(callNum) {
                 setTimeout(function () {
                     console.log("changeAutorizeable");
                     console.log("onRingingStandbyLetRise" + onRingingStandbyLetRise);
-                    if (onRingingStandbyLetRise || AutorizeNum == 3) isAuthorizable = true;
+                    if (onRingingStandbyLetRise || AutorizeNum == 2) isAuthorizable = true;
                     console.log("Autorizeable"+isAuthorizable);
                 }, 1500)
             }
