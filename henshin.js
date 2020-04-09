@@ -145,9 +145,12 @@ function ringByCamera(callNum) {
                 AutorizeNum--;
                 onStandByMetal = true;
                 playSELetsRise();
-                
+                waitTime = 1500;
             }
-            else playSECallFunction(mySwiper.realIndex);
+            else {
+                waitTime = 2500;
+                playSECallFunction(mySwiper.realIndex);
+            }
         }
         else if (AutorizeNum == 3) {
             waitTime = 2500;
