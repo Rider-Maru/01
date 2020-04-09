@@ -136,6 +136,7 @@ function ringByCamera(callNum) {
         }
         else if (AutorizeNum == 2) {
             if (mySwiper.realIndex == metalClasterHopperNum) {
+                onStandByMetal = true;
                 playSELetsRise();
                 AutorizeNum--;
             }
