@@ -142,9 +142,10 @@ function ringByCamera(callNum) {
 
                 isAuthorizable = false;
                 setTimeout(function () {
-                    Console("changeAutorizeable");
+                    Console.log("changeAutorizeable");
+                    Console.log("onRingingStandbyLetRise" + onRingingStandbyLetRise);
                     if (onRingingStandbyLetRise || AutorizeNum == 3) isAuthorizable = true;
-                    console(isAuthorizable);
+                    Console.log("Autorizeable"+isAuthorizable);
                 }, 1500)
             }
             else playSECallFunction(mySwiper.realIndex);
