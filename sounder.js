@@ -226,6 +226,7 @@ function playSEBelt(callNum) {
 }
 
 function playSELetsRise() {
+    var num = 0;
     nowplaynumCommon = num;
     console.log("Belt" + num);
     soundArrayCommon[num].connect(analyser);
