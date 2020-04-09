@@ -97,10 +97,13 @@ function JudgeAutorize(value) {
  
     }
     else {
+        if (!releaseCamera) {
+            releaseCamera = true;
+            return;
+        } 
         if (onAuthorize) {
             onAuthorize = false;
-            if (releaseCamera) ringByCamera(2);
-            else releaseCamera = true;
+            ringByCamera(2);
             document.getElementById("debug_bool").textContent = "false";
         }
        
