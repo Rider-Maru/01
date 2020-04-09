@@ -235,6 +235,7 @@ function playSELetsRise() {
     soundArrayCommon[num].connect(analyser);
     soundArrayCommon[num].start(0);
     soundArrayCommon[num].onended = function () {
+        console.log(onStandByMetal);
         if (nowplaynumCommon == null) return;
         if (!onStandByMetal) return;
         soundArrayCommon[8].loop = true;

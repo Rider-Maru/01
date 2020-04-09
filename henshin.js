@@ -54,7 +54,7 @@ video.addEventListener("loadedmetadata", function (e) {
     var ctx = canvas.getContext("2d");
     //毎フレームの実行処理
     setInterval(function (e) {
-        console.log(mySwiper.realIndex);
+        console.log(AutorizeNum);
         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
         var imagedata = ctx.getImageData(0, 0, canvas.width, canvas.height);
         var data = imagedata.data;
@@ -130,9 +130,8 @@ function ringByCamera(callNum) {
         isRing = true;
         if (onStandBy) SEstandbyStop();
         if (onStandByMetal) {
-            isRing = true;
             onStandByMetal = false;
-            stopStandbyLetsRise()
+            stopStandbyLetsRise();
             if (AutorizeNum == 2) playSECallFunction(mySwiper.realIndex);
         }
         else if (AutorizeNum == 2) {
