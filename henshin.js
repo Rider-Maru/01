@@ -4,6 +4,7 @@ var AutorizeNum = 0;
 var isPushKey = false;
 var isAuthorizable = false;
 var onStandBy = false;
+var onStandByMetal = false;
 var onAuthorize = false;
 
 
@@ -119,7 +120,7 @@ function ringByCamera(callNum) {
     console.log(callNum + ";" + AutorizeNum);
     var isRing = false;
     if (!isAuthorizable) return;
-    if (onStandBy) SEstandbyStop();
+
     if (callNum == 1 && AutorizeNum == 1) {
         isRing = true;
         onStandBy = true;
@@ -127,9 +128,20 @@ function ringByCamera(callNum) {
      }
     else if (callNum == 2) {
         isRing = true;
-        if (AutorizeNum == 2) playSECallFunction(mySwiper.realIndex);
+        if (onStandBy) SEstandbyStop();
+        if (onStandByMetal) {
+            isRing = true;
+            onStandByMetal = false;
+            SEstandbyStop();
+            if (AutorizeNum == 2) playSECallFunction(mySwiper.realIndex);
+        }
+        else if (AutorizeNum == 2) {
+            if (mySwiper.realIndex == metalClasterHopperNum) {
+                playSELetsRise();
+            }
+            else playSECallFunction(mySwiper.realIndex);
+        }
         else if (AutorizeNum == 3) {
-            console.log("finishTime");
             playSECallFinish(mySwiper.realIndex);
         }
     }

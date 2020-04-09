@@ -8,6 +8,7 @@ var nowplaynumCommon;
 var onRingingStandby = false;
 
 var shiningAssaultHopperNum = 7;
+var metalClasterHopperNum = 8;
 
     function BufferLoader(context, urlList, callback) {
         this.context = context;
@@ -217,10 +218,24 @@ function playSEBelt(callNum) {
     soundArrayCommon[num].connect(analyser);
     soundArrayCommon[num].start(0);
     soundArrayCommon[num].onended = function () {
-            if (nowplaynumCommon == null) return;
+        if (nowplaynumCommon == null) return;
             soundArrayCommon[1].loop = true;
             soundArrayCommon[1].start(0);
             onRingingStandby = true;
+    }
+}
+
+function playSELetsRise() {
+    nowplaynumCommon = num;
+    console.log("Belt" + num);
+    soundArrayCommon[num].connect(analyser);
+    soundArrayCommon[num].start(0);
+    soundArrayCommon[num].onended = function () {
+        if (nowplaynumCommon == null) return;
+        if (!onStandByMetal) return;
+        soundArrayCommon[1].loop = true;
+        soundArrayCommon[1].start(0);
+        onRingingStandby = true;
     }
 }
 
