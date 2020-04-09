@@ -142,7 +142,9 @@ function ringByCamera(callNum) {
 
                 isAuthorizable = false;
                 setTimeout(function () {
+                    Console("changeAutorizeable");
                     if (onRingingStandbyLetRise || AutorizeNum == 3) isAuthorizable = true;
+                    console(isAuthorizable);
                 }, 1500)
             }
             else playSECallFunction(mySwiper.realIndex);
@@ -170,6 +172,7 @@ function SEstandbyStop() {
     //SE_progrise.pause();
     //SE_progrise.currentTime = 0;
     onStandBy = false;
+    onStandByMetal = false;
     
     stopSE();
     stopStandbySE();
