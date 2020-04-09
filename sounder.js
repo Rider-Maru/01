@@ -269,3 +269,11 @@ function stopStandbySE() {
     soundArrayCommon[1].connect(context.destination);
     onRingingStandby = false;
 }
+function stopStandbyLetsRise() {
+    if (!onRingingStandby) return;
+    soundArrayCommon[8].stop();
+    soundArrayCommon[8] = context.createBufferSource();
+    soundArrayCommon[8].buffer = bufferListUpCommon[2];
+    soundArrayCommon[8].connect(context.destination);
+    onRingingStandby = false;
+}
