@@ -126,6 +126,7 @@ function ringByCamera(callNum) {
     if (!isAuthorizable) return;
 
     if (callNum == 1 && AutorizeNum == 1) {
+        waitTime = 1000;
         isRing = true;
         onStandBy = true;
         releaseCamera = false;
@@ -140,7 +141,6 @@ function ringByCamera(callNum) {
             if (AutorizeNum == 2) playSECallFunction(mySwiper.realIndex);
         }
         else if (AutorizeNum == 2) {
-            waitTime = 1000;
             if (mySwiper.realIndex == metalClasterHopperNum) {
                 AutorizeNum--;
                 onStandByMetal = true;
