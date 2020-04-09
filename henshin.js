@@ -142,7 +142,7 @@ function ringByCamera(callNum) {
 
                 isAuthorizable = false;
                 setTimeout(function () {
-                    if (onRingingStandbyLetsRise || AutorizeNum == 3) isAuthorizable = true;
+                    if (onRingingStandbyLetRise || AutorizeNum == 3) isAuthorizable = true;
                 }, 1500)
             }
             else playSECallFunction(mySwiper.realIndex);
