@@ -9,6 +9,8 @@ var onRingingStandby = false;
 
 var shiningAssaultHopperNum = 7;
 var metalClasterHopperNum = 8;
+var onRingingStandbyLetRise = false;
+
 
     function BufferLoader(context, urlList, callback) {
         this.context = context;
@@ -240,7 +242,7 @@ function playSELetsRise() {
         if (!onStandByMetal) return;
         soundArrayCommon[8].loop = true;
         soundArrayCommon[8].start(0);
-        onRingingStandby = true;
+        onRingingStandbyLetRise = true;
     }
 }
 
@@ -271,10 +273,10 @@ function stopStandbySE() {
     onRingingStandby = false;
 }
 function stopStandbyLetsRise() {
-    if (!onRingingStandby) return;
+    if (!onRingingStandbyLetRise) return;
     soundArrayCommon[8].stop();
     soundArrayCommon[8] = context.createBufferSource();
     soundArrayCommon[8].buffer = bufferListUpCommon[8];
     soundArrayCommon[8].connect(context.destination);
-    onRingingStandby = false;
+    onRingingStandbyLetRise = false;
 }
