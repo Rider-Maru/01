@@ -173,6 +173,7 @@ function SEstandbyStop() {
     
     stopSE();
     stopStandbySE();
+    stopStandbyLetsRise();
     
 }
 
