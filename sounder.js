@@ -224,6 +224,7 @@ function playSEBelt(callNum) {
     soundArrayCommon[num].start(0);
     soundArrayCommon[num].onended = function () {
         if (nowplaynumCommon == null) return;
+        
             soundArrayCommon[1].loop = true;
             soundArrayCommon[1].start(0);
             onRingingStandby = true;

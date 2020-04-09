@@ -122,6 +122,7 @@ function ring() {
 function ringByCamera(callNum) {
     console.log(callNum + ";" + AutorizeNum);
     var isRing = false;
+    var waitTime = 3000;
     if (!isAuthorizable) return;
 
     if (callNum == 1 && AutorizeNum == 1) {
@@ -139,22 +140,17 @@ function ringByCamera(callNum) {
             if (AutorizeNum == 2) playSECallFunction(mySwiper.realIndex);
         }
         else if (AutorizeNum == 2) {
+            waitTime = 1000;
             if (mySwiper.realIndex == metalClasterHopperNum) {
-                isRing = false;
+                AutorizeNum--;
                 onStandByMetal = true;
                 playSELetsRise();
-
-                isAuthorizable = false;
-                setTimeout(function () {
-                    console.log("changeAutorizeable");
-                    console.log("onRingingStandbyLetRise" + onRingingStandbyLetRise);
-                    if (onRingingStandbyLetRise || AutorizeNum == 2) isAuthorizable = true;
-                    console.log("Autorizeable"+isAuthorizable);
-                }, 1500)
+                
             }
             else playSECallFunction(mySwiper.realIndex);
         }
         else if (AutorizeNum == 3) {
+            waitTime = 2500;
             playSECallFinish(mySwiper.realIndex);
         }
     }
@@ -162,7 +158,7 @@ function ringByCamera(callNum) {
         isAuthorizable = false;
         setTimeout(function () {
             if (AutorizeNum == 2||AutorizeNum==3) isAuthorizable = true;
-        }, 1500)
+        }, waitTime)
 
         if (AutorizeNum < 3)AutorizeNum++;
     }
