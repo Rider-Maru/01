@@ -145,7 +145,7 @@ function ringByCamera(callNum) {
                 AutorizeNum--;
                 onStandByMetal = true;
                 playSELetsRise();
-                waitTime = 1500;
+                waitTime = 1000;
             }
             else {
                 waitTime = 2500;
