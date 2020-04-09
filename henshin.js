@@ -56,7 +56,7 @@ video.addEventListener("loadedmetadata", function (e) {
     var ctx = canvas.getContext("2d");
     //毎フレームの実行処理
     setInterval(function (e) {
-        console.log("releaseCamera:" + releaseCamera + "/" +"isAuthorizable:"+isAuthorizable);
+        //console.log("releaseCamera:" + releaseCamera + "/" +"isAuthorizable:"+isAuthorizable);
         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
         var imagedata = ctx.getImageData(0, 0, canvas.width, canvas.height);
         var data = imagedata.data;
@@ -161,7 +161,7 @@ function ringByCamera(callNum) {
     if (isRing) {
         isAuthorizable = false;
         setTimeout(function () {
-            if (onRingingStandby||AutorizeNum==3) isAuthorizable = true;
+            if (AutorizeNum == 2||AutorizeNum==3) isAuthorizable = true;
         }, 1500)
 
         if (AutorizeNum < 3)AutorizeNum++;
