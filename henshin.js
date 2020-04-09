@@ -126,7 +126,7 @@ function ringByCamera(callNum) {
     if (!isAuthorizable) return;
 
     if (callNum == 1 && AutorizeNum == 1) {
-        waitTime = 1000;
+        waitTime = 2000;
         isRing = true;
         onStandBy = true;
         releaseCamera = false;
