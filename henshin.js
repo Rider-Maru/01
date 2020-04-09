@@ -7,6 +7,8 @@ var onStandBy = false;
 var onStandByMetal = false;
 var onAuthorize = false;
 
+var releaseCamera = true;
+
 
 //var mySwiper.realIndex = 0;
 
@@ -54,7 +56,7 @@ video.addEventListener("loadedmetadata", function (e) {
     var ctx = canvas.getContext("2d");
     //毎フレームの実行処理
     setInterval(function (e) {
-        console.log(AutorizeNum);
+        console.log(releaseCamera);
         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
         var imagedata = ctx.getImageData(0, 0, canvas.width, canvas.height);
         var data = imagedata.data;
@@ -97,7 +99,8 @@ function JudgeAutorize(value) {
     else {
         if (onAuthorize) {
             onAuthorize = false;
-            ringByCamera(2);
+            if (releaseCamera) ringByCamera(2);
+            else releaseCamera = true;
             document.getElementById("debug_bool").textContent = "false";
         }
        
@@ -124,6 +127,7 @@ function ringByCamera(callNum) {
     if (callNum == 1 && AutorizeNum == 1) {
         isRing = true;
         onStandBy = true;
+        releaseCamera = false;
         playSEBelt(mySwiper.realIndex);
      }
     else if (callNum == 2) {
@@ -158,7 +162,7 @@ function ringByCamera(callNum) {
         isAuthorizable = false;
         setTimeout(function () {
             if (onRingingStandby||AutorizeNum==3) isAuthorizable = true;
-        }, 3000)
+        }, 1500)
 
         if (AutorizeNum < 3)AutorizeNum++;
     }
