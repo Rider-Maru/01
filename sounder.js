@@ -223,11 +223,28 @@ function playSECallFinish(callNum) {
         soundArrayKey[num].start(0);
         soundArrayKey[num].onended = function () {
             if (nowplaynumKey == null) return;
-            stopSE();
-            nowplaynumCommon = 3;
-            nowplaynumKey = null;
-            soundArrayCommon[3].connect(analyser);
-            soundArrayCommon[3].start(0);
+            if (tempRiseNum == 0) {
+                stopSE();
+                nowplaynumCommon = 3;
+                nowplaynumKey = null;
+                soundArrayCommon[3].connect(analyser);
+                soundArrayCommon[3].start(0);
+            } else {
+                stopSE();
+                nowplaynumCommon = 8 +tempRiseNum * 2;
+                nowplaynumKey = null;
+                soundArrayCommon[nowplaynumCommon].connect(analyser);
+                soundArrayCommon[nowplaynumCommon].start(0);
+                soundArrayKey[nowplaynumCommon].onended = function () {
+                    if (tempRiseNum == 0) {
+                        stopSE();
+                        nowplaynumCommon = 3;
+                        nowplaynumKey = null;
+                        soundArrayCommon[3].connect(analyser);
+                        soundArrayCommon[3].start(0);
+                    }
+                }
+            }
         }
     }
 }
