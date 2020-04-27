@@ -235,7 +235,7 @@ function playSECallFinish(callNum) {
                 nowplaynumKey = null;
                 soundArrayCommon[nowplaynumCommon].connect(analyser);
                 soundArrayCommon[nowplaynumCommon].start(0);
-                soundArrayKey[nowplaynumCommon].onended = function () {
+                soundArrayCommon[nowplaynumCommon].onended = function () {
                     if (nowplaynumCommon != null) {
                         stopSE();
                         nowplaynumCommon = 3;
