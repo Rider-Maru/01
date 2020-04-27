@@ -9,6 +9,7 @@ var onAuthorize = false;
 
 var releaseCamera = true;
 
+var changingKeyNum = 0;
 
 //var mySwiper.realIndex = 0;
 
@@ -125,12 +126,19 @@ function ringByCamera(callNum) {
     var waitTime = 3000;
     if (!isAuthorizable) return;
 
-    if (callNum == 1 && AutorizeNum == 1) {
-        waitTime = 3000;
-        isRing = true;
-        onStandBy = true;
-        releaseCamera = false;
-        playSEBelt(mySwiper.realIndex);
+    if (callNum == 1) {
+        if (AutorizeNum == 1) {
+            waitTime = 3000;
+            isRing = true;
+            onStandBy = true;
+            releaseCamera = false;
+            playSEBelt(mySwiper.realIndex);
+        } else if (AutorizeNum == 3 && changingKeyNum != mySwiper.realIndex) {
+            waitTime = 800;
+            isRing = true;
+            releaseCamera = false;
+            playSEfinishRise(mySwiper.realIndex);
+        }
      }
     else if (callNum == 2) {
         isRing = true;
@@ -138,7 +146,10 @@ function ringByCamera(callNum) {
         if (onStandByMetal) {
             onStandByMetal = false;
             stopStandbyLetsRise();
-            if (AutorizeNum == 2) playSECallFunction(mySwiper.realIndex);
+            if (AutorizeNum == 2) {
+                changingKeyNum = mySwiper.realIndex;
+                playSECallFunction(mySwiper.realIndex);
+            }
         }
         else if (AutorizeNum == 2) {
             if (mySwiper.realIndex == metalClasterHopperNum) {
@@ -148,11 +159,12 @@ function ringByCamera(callNum) {
                 waitTime = 1000;
             }
             else {
+                changingKeyNum = mySwiper.realIndex;
                 waitTime = 2500;
                 playSECallFunction(mySwiper.realIndex);
             }
         }
-        else if (AutorizeNum == 3) {
+        else if (AutorizeNum == 3&&mySwiper.realIndex==changingKeyNum) {
             waitTime = 2500;
             playSECallFinish(mySwiper.realIndex);
         }

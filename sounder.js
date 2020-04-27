@@ -7,6 +7,8 @@ var nowplaynumKey;
 var nowplaynumCommon;
 var onRingingStandby = false;
 
+var finishRiseNum = 0;
+
 var shiningAssaultHopperNum = 7;
 var metalClasterHopperNum = 8;
 var onRingingStandbyLetRise = false;
@@ -99,7 +101,19 @@ var lightLayer = document.getElementsByClassName('square-button');
             'audio/overrize.mp3',
             'audio/finishAssault.mp3',
             'audio/progrise.mp3',
-            'audio/LetsRise.mp3'
+            'audio/LetsRise.mp3',
+            'audio/riseBit.mp3',
+            'audio/impactBit.mp3',
+            'audio/riseBite.mp3',
+            'audio/impactBite.mp3',
+            'audio/riseKilo.mp3',
+            'audio/impactKilo.mp3',
+            'audio/riseMega.mp3',
+            'audio/impactMega.mp3',
+            'audio/riseGiga.mp3',
+            'audio/impactGiga.mp3',
+            'audio/riseTera.mp3',
+            'audio/impactTera.mp3',
 
         ],
         finishedLoading
@@ -173,6 +187,8 @@ function playSECallKey(callNum) {
     console.log("Key" + num);
     var num = callNum * 3;
 
+    finishRiseNum = 0;
+
     soundArrayKey[num].connect(analyser);
     soundArrayKey[num].start(0);
     soundArrayKey[num] = context.createBufferSource();
@@ -192,6 +208,8 @@ function playSECallFinish(callNum) {
     var num = 2 + callNum * 3;
     stopSE();
     nowplaynumCommon = 2;
+    var tempRiseNum = finishRiseNum;
+    finishRiseNum = 0;
     if (callNum == shiningAssaultHopperNum) nowplaynumCommon = 6;
     console.log("Finish" + num);
     soundArrayCommon[nowplaynumCommon].connect(analyser);
@@ -229,6 +247,16 @@ function playSEBelt(callNum) {
             soundArrayCommon[1].start(0);
             onRingingStandby = true;
     }
+}
+function playSEfinishRise(callNum) {
+    if (finishRiseNum >= 6) return;
+    finishRiseNum++;
+    var num = 7+finishRiseNum*2;
+    soundArrayCommon[num].connect(analyser);
+    soundArrayCommon[num].start(0);
+    soundArrayCommon[num] = context.createBufferSource();
+    soundArrayCommon[num].buffer = bufferListUpCommon[num];
+    soundArrayCommon[num].connect(context.destination); 
 }
 
 function playSELetsRise() {
