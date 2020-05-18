@@ -259,6 +259,12 @@ function playSEfinishRise(callNum) {
     soundArrayCommon[num] = context.createBufferSource();
     soundArrayCommon[num].buffer = bufferListUpCommon[num];
     soundArrayCommon[num].connect(context.destination); 
+
+    soundArrayCommon[num].connect(analyser);
+    soundArrayCommon[num].start(0);
+    soundArrayCommon[num] = context.createBufferSource();
+    soundArrayCommon[num].buffer = bufferListUpCommon[num];
+    soundArrayCommon[num].connect(context.destination); 
 }
 
 function playSELetsRise() {

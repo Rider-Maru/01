@@ -138,7 +138,6 @@ function ringByCamera(callNum) {
             isRing = true;
             releaseCamera = false;
             playSEfinishRise(mySwiper.realIndex);
-            playSEfinishRise(mySwiper.realIndex);
         }
      }
     else if (callNum == 2) {
