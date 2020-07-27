@@ -13,6 +13,7 @@ var shiningAssaultHopperNum = 7;
 var metalClasterHopperNum = 8;
 var zeroTwoNum =9;
 var onRingingStandbyLetRise = false;
+var onRingingStandby02 = false;
 
 
     function BufferLoader(context, urlList, callback) {
@@ -228,18 +229,19 @@ function playSECallFinish(callNum) {
         soundArrayKey[num].start(0);
         soundArrayKey[num].onended = function () {
             if (nowplaynumKey == null) return;
-            if (tempRiseNum == 0) {
-                stopSE();
-                nowplaynumCommon = 3;
-                nowplaynumKey = null;
-                soundArrayCommon[3].connect(analyser);
-                soundArrayCommon[3].start(0);
-            } else if (callNum == zeroTwoNum) {
+            if (callNum == zeroTwoNum) {
                 stopSE();
                 nowplaynumCommon = 4;
                 nowplaynumKey = null;
                 soundArrayCommon[4].connect(analyser);
                 soundArrayCommon[4].start(0);
+            }
+            else if (tempRiseNum == 0) {
+                stopSE();
+                nowplaynumCommon = 3;
+                nowplaynumKey = null;
+                soundArrayCommon[3].connect(analyser);
+                soundArrayCommon[3].start(0);
             } else {
                 stopSE();
                 nowplaynumCommon = 8 +tempRiseNum * 2;
@@ -272,9 +274,16 @@ function playSEBelt(callNum) {
     soundArrayCommon[num].onended = function () {
         if (nowplaynumCommon == null) return;
         if (onStandByMetal) return;
+        if (callNum = zeroTwoNum) {
+            soundArrayCommon[23].loop = true;
+            soundArrayCommon[23].start(0);
+            onRingingStandby02 = true;
+        } else {
             soundArrayCommon[1].loop = true;
             soundArrayCommon[1].start(0);
             onRingingStandby = true;
+        }
+
     }
 }
 function playSEfinishRise(callNum) {
@@ -343,4 +352,12 @@ function stopStandbyLetsRise() {
     soundArrayCommon[8].buffer = bufferListUpCommon[8];
     soundArrayCommon[8].connect(context.destination);
     onRingingStandbyLetRise = false;
+}
+function stopStandbySE02() {
+    if (!onRingingStandby02) return;
+    soundArrayCommon[23].stop();
+    soundArrayCommon[23] = context.createBufferSource();
+    soundArrayCommon[23].buffer = bufferListUpCommon[23];
+    soundArrayCommon[23].connect(context.destination);
+    onRingingStandby = false;
 }

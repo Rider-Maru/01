@@ -114,9 +114,9 @@ function JudgeAutorize(value) {
 // ========================================
 function ring() {
     isAuthorizable = true;
-    AutorizeNum = 1;
+    if (!(onRingingStandby02&&mySwiper.realIndex==zeroTwoNum))AutorizeNum = 1;
     playSECallKey(mySwiper.realIndex);
-    SEstandbyStop();
+    if (!(onRingingStandby02 && mySwiper.realIndex == zeroTwoNum))SEstandbyStop();
 }
 
 
@@ -193,7 +193,7 @@ function SEstandbyStop() {
     stopSE();
     stopStandbySE();
     stopStandbyLetsRise();
-    
+    stopStandbySE02();
 }
 
 
