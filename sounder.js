@@ -275,8 +275,8 @@ function playSEBelt(callNum) {
         if (nowplaynumCommon == null) return;
         if (onStandByMetal) return;
         if (callNum = zeroTwoNum) {
-            soundArrayCommon[23].loop = true;
-            soundArrayCommon[23].start(0);
+            soundArrayCommon[22].loop = true;
+            soundArrayCommon[22].start(0);
             onRingingStandby02 = true;
         } else {
             soundArrayCommon[1].loop = true;
@@ -355,9 +355,9 @@ function stopStandbyLetsRise() {
 }
 function stopStandbySE02() {
     if (!onRingingStandby02) return;
-    soundArrayCommon[23].stop();
-    soundArrayCommon[23] = context.createBufferSource();
-    soundArrayCommon[23].buffer = bufferListUpCommon[23];
-    soundArrayCommon[23].connect(context.destination);
+    soundArrayCommon[22].stop();
+    soundArrayCommon[22] = context.createBufferSource();
+    soundArrayCommon[22].buffer = bufferListUpCommon[22];
+    soundArrayCommon[22].connect(context.destination);
     onRingingStandby = false;
 }
