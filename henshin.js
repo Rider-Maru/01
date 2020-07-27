@@ -116,7 +116,8 @@ function ring() {
     isAuthorizable = true;
     if (!(onRingingStandby02&&mySwiper.realIndex==zeroTwoNum))AutorizeNum = 1;
     playSECallKey(mySwiper.realIndex);
-    if (!(onRingingStandby02 && mySwiper.realIndex == zeroTwoNum))SEstandbyStop();
+    if (!(onRingingStandby02 && mySwiper.realIndex == zeroTwoNum)) SEstandbyStop();
+    
 }
 
 
