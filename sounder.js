@@ -11,6 +11,7 @@ var finishRiseNum = 0;
 
 var shiningAssaultHopperNum = 7;
 var metalClasterHopperNum = 8;
+var zeroTwoNum =9;
 var onRingingStandbyLetRise = false;
 
 
@@ -114,7 +115,8 @@ var lightLayer = document.getElementsByClassName('square-button');
             'audio/impactGiga.mp3',
             'audio/riseTera.mp3',
             'audio/impactTera.mp3',
-
+            'audio/zero-twoRize.mp3',
+            'audio/standbyLoop02.mp3',
         ],
         finishedLoading
     );
@@ -157,6 +159,9 @@ function finishedLoading(bufferList) {
                 'audio/everybodyJump.mp3',
                 'audio/metalClasterHopper.mp3',
                 'audio/metalRising.mp3',
+                'audio/zero-twoJump.mp3',
+                'audio/zero-two.mp3',
+                'audio/zero-twoBigbun.mp3',
                 /*
                 'audio/.mp3',
                 'audio/.mp3',
@@ -229,6 +234,12 @@ function playSECallFinish(callNum) {
                 nowplaynumKey = null;
                 soundArrayCommon[3].connect(analyser);
                 soundArrayCommon[3].start(0);
+            } else if (callNum == zeroTwoNum) {
+                stopSE();
+                nowplaynumCommon = 4;
+                nowplaynumKey = null;
+                soundArrayCommon[4].connect(analyser);
+                soundArrayCommon[4].start(0);
             } else {
                 stopSE();
                 nowplaynumCommon = 8 +tempRiseNum * 2;
@@ -252,6 +263,7 @@ function playSECallFinish(callNum) {
 function playSEBelt(callNum) {
     var num = 0;
     if (callNum == shiningAssaultHopperNum) num = 5;
+    if (callNum == zeroTwoNum) num = 21;
 
     nowplaynumCommon = num;
     console.log("Belt"+num);
