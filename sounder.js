@@ -163,6 +163,9 @@ function finishedLoading(bufferList) {
                 'audio/zero-twoJump.mp3',
                 'audio/zero-two.mp3',
                 'audio/zero-twoBigbun.mp3',
+                'audio/jump2.mp3',
+                'audio/realizingHopper.mp3',
+                'audio/realizing.mp3',
                 /*
                 'audio/.mp3',
                 'audio/.mp3',
