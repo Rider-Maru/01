@@ -205,17 +205,14 @@ function playSECallKey(callNum) {
         alert('オーディオデータをロード中です');
         return;
     }
-    console.log("Key" + num);
+    console.log("Key" + callNum);
     var num = callNum * 3;
 
     finishRiseNum = 0;
 if(callNum =hellRiseNum){
     soundArrayKey[num].connect(analyser);
     soundArrayKey[num].start(0);
-    soundArrayKey[num] = context.createBufferSource();
-    soundArrayKey[num].buffer = bufferListUpKey[num];
-    soundArrayKey[num].connect(context.destination); 
-    soundArrayCommon[num].onended = function () {
+    soundArrayKey[num].onended = function () {
             soundArrayCommon[23].loop = true;
             soundArrayCommon[23].start(0);
             onRingingStandbyHell = true;
