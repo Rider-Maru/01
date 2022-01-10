@@ -195,6 +195,8 @@ function SEstandbyStop() {
     stopStandbySE();
     stopStandbyLetsRise();
     stopStandbySE02();
+    stopStandbySEHell();
+    stopStandbySE0102();
 }
 
 

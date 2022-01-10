@@ -12,8 +12,12 @@ var finishRiseNum = 0;
 var shiningAssaultHopperNum = 7;
 var metalClasterHopperNum = 8;
 var zeroTwoNum =9;
+var hellRiseNum = 10;
+var zero0102Num =11;
 var onRingingStandbyLetRise = false;
 var onRingingStandby02 = false;
+var onRingingStandbyHell = false;
+var onRingingStandby0102 = false;
 
 
     function BufferLoader(context, urlList, callback) {
@@ -118,6 +122,8 @@ var lightLayer = document.getElementsByClassName('square-button');
             'audio/impactTera.mp3',
             'audio/zero-twoRize.mp3',
             'audio/standbyLoop02.mp3',
+            'audio/hellCount.mp3',
+            'audio/standbyLoop0102.mp3',
         ],
         finishedLoading
     );
@@ -166,6 +172,12 @@ function finishedLoading(bufferList) {
                 'audio/jump2.mp3',
                 'audio/realizingHopper.mp3',
                 'audio/realizing.mp3',
+                'audio/hellrise.mp3',
+                'audio/hellrising.mp3',
+                'audio/rising.mp3',
+                'audio/jumpZerotwoJump.mp3',
+                'audio/realizingHopper-Zero-Two.mp3',
+                'audio/realizingBibarn.mp3',
                 /*
                 'audio/.mp3',
                 'audio/.mp3',
@@ -197,12 +209,26 @@ function playSECallKey(callNum) {
     var num = callNum * 3;
 
     finishRiseNum = 0;
-
+if(callNum =hellRiseNum){
     soundArrayKey[num].connect(analyser);
     soundArrayKey[num].start(0);
     soundArrayKey[num] = context.createBufferSource();
     soundArrayKey[num].buffer = bufferListUpKey[num];
     soundArrayKey[num].connect(context.destination); 
+    soundArrayCommon[num].onended = function () {
+            soundArrayCommon[23].loop = true;
+            soundArrayCommon[23].start(0);
+            onRingingStandbyHell = true;
+            
+        }
+}
+else { 
+    soundArrayKey[num].connect(analyser);
+    soundArrayKey[num].start(0);
+    soundArrayKey[num] = context.createBufferSource();
+    soundArrayKey[num].buffer = bufferListUpKey[num];
+    soundArrayKey[num].connect(context.destination); 
+}
 }
 
 function playSECallFunction(callNum) {
@@ -232,7 +258,7 @@ function playSECallFinish(callNum) {
         soundArrayKey[num].start(0);
         soundArrayKey[num].onended = function () {
             if (nowplaynumKey == null) return;
-            if (callNum == zeroTwoNum) {
+            if (callNum == zeroTwoNum || zero0102Num) {
                 stopSE();
                 nowplaynumCommon = 4;
                 nowplaynumKey = null;
@@ -281,7 +307,12 @@ function playSEBelt(callNum) {
             soundArrayCommon[22].loop = true;
             soundArrayCommon[22].start(0);
             onRingingStandby02 = true;
-        } else {
+            
+        } else if (callNum == zero0102Num) {
+            soundArrayCommon[24].loop = true;
+            soundArrayCommon[24].start(0);
+            onRingingStandby0102 = true;
+        }else {
             soundArrayCommon[1].loop = true;
             soundArrayCommon[1].start(0);
             onRingingStandby = true;
@@ -363,4 +394,20 @@ function stopStandbySE02() {
     soundArrayCommon[22].buffer = bufferListUpCommon[22];
     soundArrayCommon[22].connect(context.destination);
     onRingingStandby02 = false;
+}
+function stopStandbySEHell() {
+    if (!onRingingStandbyHell) return;
+    soundArrayCommon[23].stop();
+    soundArrayCommon[23] = context.createBufferSource();
+    soundArrayCommon[23].buffer = bufferListUpCommon[23];
+    soundArrayCommon[23].connect(context.destination);
+    onRingingStandbyHell = false;
+}
+function stopStandbySE0102() {
+    if (!onRingingStandby0102) return;
+    soundArrayCommon[24].stop();
+    soundArrayCommon[24] = context.createBufferSource();
+    soundArrayCommon[24].buffer = bufferListUpCommon[24];
+    soundArrayCommon[24].connect(context.destination);
+    onRingingStandbyHell = false;
 }
