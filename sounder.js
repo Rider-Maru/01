@@ -218,8 +218,7 @@ if(callNum ==hellRiseNum){
     soundArrayKey[num].onended = function () {
             soundArrayCommon[23].loop = true;
             soundArrayCommon[23].start(0);
-            onRingingStandbyHell = true;
-            
+            onRingingStandbyHell = true; 
         }
 }
 else { 
@@ -295,7 +294,7 @@ function playSEBelt(callNum) {
     var num = 0;
     if (callNum == shiningAssaultHopperNum) num = 5;
     if (callNum == zeroTwoNum) num = 21;
-
+    if(callNum == hellRiseNum)stopStandbySEHell();
     nowplaynumCommon = num;
     console.log("Belt"+num);
     soundArrayCommon[num].connect(analyser);
