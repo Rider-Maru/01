@@ -216,6 +216,7 @@ if(callNum ==hellRiseNum){
     soundArrayKey[num].buffer = bufferListUpKey[num];
     soundArrayKey[num].connect(context.destination); 
     soundArrayKey[num].onended = function () {
+        soundArrayCommon[23].connect(analyser);
             soundArrayCommon[23].loop = true;
             soundArrayCommon[23].start(0);
             onRingingStandbyHell = true; 
