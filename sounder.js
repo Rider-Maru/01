@@ -12,8 +12,8 @@ var finishRiseNum = 0;
 var shiningAssaultHopperNum = 7;
 var metalClasterHopperNum = 8;
 var zeroTwoNum =9;
-var hellRiseNum = 10;
-var zero0102Num =11;
+var hellRiseNum = 11;
+var zero0102Num =12;
 var onRingingStandbyLetRise = false;
 var onRingingStandby02 = false;
 var onRingingStandbyHell = false;
@@ -209,7 +209,7 @@ function playSECallKey(callNum) {
     var num = callNum * 3;
 
     finishRiseNum = 0;
-if(callNum =hellRiseNum){
+if(callNum ==hellRiseNum){
     soundArrayKey[num].connect(analyser);
     soundArrayKey[num].start(0);
     soundArrayKey[num].onended = function () {
