@@ -258,7 +258,7 @@ function playSECallFinish(callNum) {
         soundArrayKey[num].start(0);
         soundArrayKey[num].onended = function () {
             if (nowplaynumKey == null) return;
-            if (callNum == zeroTwoNum || zero0102Num) {
+            if (callNum == zeroTwoNum || callNum == zero0102Num) {
                 stopSE();
                 nowplaynumCommon = 4;
                 nowplaynumKey = null;
